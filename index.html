@@ -10,17 +10,30 @@
 </head>
 <body>  
   <div id="scythe-container">
-  	<div class="scythe-view" id="view_presentation" data-bind="css: {current:current}">
-  		PRESENTACIÓN
+  	<div class="scythe-view presentation" id="presentation" data-bind="css: {current:current}">
+      <div class="container center">
+  		<div class="t1">SCYTHE AUTOMA</div>
+      <div class="footer">
+        <div data-bind="visible:isLang">
+          <label>Language</label>
+          <select data-bind="options:languages,value:lan">
+          </select>
+        </div>        
+        <button data-bind="text:txt_continue,click:continueAction">Continuar</button>
+      </div>
+      
+    </div>
   	</div>
   	<div class="scythe-view" id="view_new" data-bind="css: {current:current}">
       <div class="container">
-        <div class="t1 center">Nuevo juego</div>
-        <p class="center">Elije las facciones que jugarán el juego:</p>
+        <div class="t1 center" data-bind="text:txt_title"></div>
+        <p class="center" data-bind="text:txt_present"></p>
       </div>  		
   	</div>
   </div>
   <script type="text/javascript" src="js/vendor/knockout.min.js"></script>
+   <!--<script type="text/javascript" src="js/spanish.js"></script>
+  <script type="text/javascript" src="js/french.js"></script> -->
   <script type="text/javascript" src="js/scythe.min.js"></script>
 </body>
 </html>
