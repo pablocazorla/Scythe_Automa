@@ -15,3 +15,7 @@ GAME.newGame(playerOptions);
 var jug = GAME.getCurrentPlayer();
 
 jug = GAME.advanceCurrentPlayer();
+
+var card = AUTOMA.getCard();
+
+

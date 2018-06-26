@@ -1,9 +1,1 @@
-body,div,canvas{
-	padding: 0;
-	margin: 0;
-	overflow: hidden;
-	background-color: #EEE;
-}
-canvas {
-  /*background-color: #F00 !important;*/
-}
+.input-base{-webkit-appearance:none;-moz-appearance:none;appearance:none}body{overflow:hidden;background:#fbf6ed url('../images/texture.jpg');font-size:18px;letter-spacing:.02em;line-height:1.4;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;font-family:'Neuton', serif;color:#666}#scythe-container{position:fixed;z-index:0;top:0;bottom:0;left:0;right:0;overflow:hidden}.scythe-view{position:absolute;z-index:1;top:0;bottom:0;left:0;right:0;overflow:hidden;visibility:hidden;opacity:0;-webkit-transition:opacity 0.4s;-ms-transition:opacity 0.4s;-o-transition:opacity 0.4s;transition:opacity 0.4s}.scythe-view.current{z-index:10;visibility:visible;opacity:1}.container{padding:15px;height:100%}.center{text-align:center}.t1,.t2,.t3,.t4,.t5,.t6{font-family:'Anton', sans-serif;text-transform:uppercase;letter-spacing:.06em;color:#999}.t1{font-size:36px}

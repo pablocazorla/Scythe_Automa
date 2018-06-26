@@ -183,9 +183,26 @@ var AUTOMA = (function() {
 	}
 
 	/* GET CARD **********/
-
 	A.getCard = (function() {
-		
+		var deck = [],
+			shuffle = function(o) {
+				for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+				return o;
+			},
+			generateDeck = function() {
+				deck = originalDeck.slice(0);
+				deck = shuffle(deck);
+			};
+		return function(){
+			if(deck.length === 0){
+				generateDeck();
+			}
+			
+			var card = deck[0];
+			deck.shift();
+
+			return card;
+		};
 	})();
 
 

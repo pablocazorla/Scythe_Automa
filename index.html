@@ -5,11 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Scythe Automa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link href="https://fonts.googleapis.com/css?family=Anton|Neuton" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
 <body>  
-  <div id="scythe-container"></div>
-  <script type="text/javascript" src="js/vendor/konva.min.js"></script>
+  <div id="scythe-container">
+  	<div class="scythe-view" id="view_presentation" data-bind="css: {current:current}">
+  		PRESENTACIÓN
+  	</div>
+  	<div class="scythe-view" id="view_new" data-bind="css: {current:current}">
+      <div class="container">
+        <div class="t1 center">Nuevo juego</div>
+        <p class="center">Elije las facciones que jugarán el juego:</p>
+      </div>  		
+  	</div>
+  </div>
+  <script type="text/javascript" src="js/vendor/knockout.min.js"></script>
   <script type="text/javascript" src="js/scythe.min.js"></script>
 </body>
 </html>

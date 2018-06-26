@@ -1,0 +1,54 @@
+body{
+	overflow: hidden;
+	background: #fbf6ed url('../images/texture.jpg');
+	font-size: 18px;
+	letter-spacing: .02em;
+	line-height: 1.4;
+	.noselect;
+	.font;
+	color:#666;
+}
+#scythe-container{
+	position: fixed;
+	z-index: 0;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+}
+
+.scythe-view{
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	.transition(opacity .4s);
+	&.current{
+		z-index: 10;
+		visibility: visible;
+		opacity: 1;
+	}
+}
+.container{
+	padding:15px;
+	height: 100%;
+}
+
+.center{
+	text-align: center;
+}
+
+.t1,.t2,.t3,.t4,.t5,.t6{
+	.font-alt;
+	.uppercase;
+	color:#999;
+}
+.t1{
+	font-size: 36px;
+}
