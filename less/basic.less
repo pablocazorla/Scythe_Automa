@@ -1,26 +1,72 @@
+html{
+	height: 100%;
+}
 body{
 	overflow: hidden;
-	background: #fbf6ed url('../images/texture.jpg');
+
 	font-size: 16px;
 	letter-spacing: .02em;
 	line-height: 1.4;
 	.noselect;
 	.font;
 	color:#666;
+		background: #fbf6ed url('../images/bg.jpg') top center;
+	background-size: cover;
 }
-#scythe-container{
-	position: fixed;
-	z-index: 0;
+#bg{
+	position: absolute;
+	z-index: 1;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	overflow: hidden;
+	background: #fbf6ed url('../images/bg.jpg') top center;
+	background-size: cover;
+	.g{
+		@background-size: 830px;
+		position: absolute;
+		width: 50%;
+		height: 50%;
+		&.g1{
+			top: 0;
+			left: 0;
+			background: url('../images/g1.svg') top left no-repeat;
+			background-size: @background-size;
+		}
+		&.g2{
+			top: 0;
+			right: 0;
+			background: url('../images/g2.svg') top right no-repeat;
+			background-size: @background-size;
+		}
+		&.g3{
+			bottom: 0;
+			left: 0;
+			background: url('../images/g4.svg') bottom left no-repeat;
+			background-size: @background-size;
+		}
+		&.g4{
+			bottom: 0;
+			right: 0;
+			background: url('../images/g3.svg') bottom right no-repeat;
+			background-size: @background-size;
+		}
+	}
 }
+#scythe-container{
+	position: relative;
+	overflow: hidden;
+	width: 420px;
+	height: 560px;
+	margin:0 auto;	
+}
+
+
 
 .scythe-view{
 	position: absolute;
-	z-index: 1;
+	z-index: 10;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -30,21 +76,20 @@ body{
 	opacity: 0;
 	.transition(opacity .4s);
 	&.current{
-		z-index: 10;
+		z-index: 12;
 		visibility: visible;
 		opacity: 1;
 	}
 }
 .container{
 	position: relative;
-	padding:15px;
-	max-width: 440px;
+	padding:20px;	
 	margin:0 auto;
-	height: 470px;
-	border-bottom:3px solid #000;
+	max-width: 440px;
+	height: 100%;//470px;
 }
 .footer{
-	padding:15px;
+	padding:20px;
 	position: absolute;
 	bottom: 0;
 	left: 0;
@@ -68,8 +113,8 @@ input,select,textarea,button,label{
 	.input-base;
 	border-radius: 0;
 	display: block;
-	width: 100%;
-	max-width: 280px;
+	width: 80%;
+	//max-width: 280px;
 	margin: 0 auto;
 	
 
