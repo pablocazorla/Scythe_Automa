@@ -61,19 +61,34 @@
  		currentView.extend({ notify: 'always' });
 
 
- 		var goTo = function(viewName,parameters){
+ 		var goToView = function(viewName,parameters){
  			currentView(viewName);
  		};
 
  		/* END CURRENT VIEW *****************************/
 
+ 		/* SHOW ALERT *****************************/
+
+ 		var alertViewText = ko.observable('');
+ 		alertViewText.extend({ notify: 'always' });
+
+
+ 		var showAlert = function(text){
+ 			alertViewText(text);
+ 		};
+
+ 		/* END SHOW ALERT *****************************/
+
  		/* VIEW MODELS *****************************/
 
- 		var viewModels = [];
+ 		var viewModelList = [];
+
+ 		var viewModel = {};
 
  		var bindAllModels = function(){
- 			viewModels.forEach(function(vm){
- 				vm();
+ 			viewModelList.forEach(function(vm){
+ 				var newVM = vm();
+ 				viewModel[newVM.viewName] = newVM;
  			});
  		};
 

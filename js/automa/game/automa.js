@@ -2,48 +2,20 @@
 var AUTOMA = (function() {
 	var A = {};
 
-	A.colors = [{
-		name: colorNames['red'],
-		icon: 'ic',
-		style: {
-			backgroundColor: 'red',
-			color: 'white'
-		}
+	A.factions = [{
+		name: 'rusviet'
 	}, {
-		name: colorNames['black'],
-		icon: 'ic',
-		style: {
-			backgroundColor: 'black',
-			color: 'white'
-		}
+		name: 'togawa'
 	}, {
-		name: colorNames['yellow'],
-		icon: 'ic',
-		style: {
-			backgroundColor: 'yellow',
-			color: 'black'
-		}
+		name: 'crimean'
 	}, {
-		name: colorNames['blue'],
-		icon: 'ic',
-		style: {
-			backgroundColor: 'blue',
-			color: 'white'
-		}
+		name: 'saxony'
 	}, {
-		name: colorNames['green'],
-		icon: 'ic',
-		style: {
-			backgroundColor: 'green',
-			color: 'white'
-		}
+		name: 'polania'
 	}, {
-		name: colorNames['white'],
-		icon: 'ic',
-		style: {
-			backgroundColor: 'white',
-			color: 'red'
-		}
+		name: 'albion'
+	}, {
+		name: 'nordic'
 	}];
 
 	A.types = {
@@ -193,11 +165,11 @@ var AUTOMA = (function() {
 				deck = originalDeck.slice(0);
 				deck = shuffle(deck);
 			};
-		return function(){
-			if(deck.length === 0){
+		return function() {
+			if (deck.length === 0) {
 				generateDeck();
 			}
-			
+
 			var card = deck[0];
 			deck.shift();
 

@@ -1,5 +1,5 @@
 //Presentation
-(function() {
+var presentationVM = (function() {
 	var vm = {
 		current: ko.observable(true),
 		lan: ko.observable('English'),
@@ -25,10 +25,16 @@
 	vm.continueAction = function(){
 		bindAllModels();
 		vm.current(false);
-		goTo('view_new');
+		goToView('view_new');
 	};
 
 
 
 	ko.applyBindings(vm, document.getElementById('presentation'));
+	return vm;
 })();
+
+// setTimeout(function(){
+// 	presentationVM.continueAction();
+// },300);
+

@@ -1,10 +1,12 @@
-
-	// viewModels.forEach(function(vmFunc){
-	// 	vmFunc();
-	// });
+	function force(vn){
+		bindAllModels();
+		presentationVM.current(false);
+		goToView(vn);
+	}
 	
+	//GAME = createGame([1,0,2]);
+	//force('view_human_start');
 
-	currentView('view_new');
 
 })();
 /* END UI *******************************************/

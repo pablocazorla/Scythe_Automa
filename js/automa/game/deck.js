@@ -4,7 +4,7 @@ var originalDeck = [{
 	'e1': {
 		'move': [{
 			'type': 'worker',
-			'color': colorNames['blue']
+			'faction': 'nordic'
 		}, {
 			'type': 'encounter_or_factory'
 		}, {
@@ -38,13 +38,13 @@ var originalDeck = [{
 	'e1': {
 		'move': [{
 			'type': 'encounter_or_factory',
-			'color': colorNames['white']
+			'faction': 'polania'
 		}, {
 			'type': 'worker'
 		}],
 		'gain': [{
 			'type': 'money',
-			'color': colorNames['yellow']
+			'faction': 'crimean'
 		}, {
 			'type': 'money'
 		}],
@@ -53,13 +53,13 @@ var originalDeck = [{
 	'e2': {
 		'move': [{
 			'type': 'encounter_or_factory',
-			'color': colorNames['white']
+			'faction': 'polania'
 		}, {
 			'type': 'worker'
 		}],
 		'gain': [{
 			'type': 'money',
-			'color': colorNames['yellow']
+			'faction': 'crimean'
 		}, {
 			'type': 'card'
 		}, {
@@ -112,7 +112,7 @@ var originalDeck = [{
 		}],
 		'gain': [{
 			'type': 'money',
-			'color': colorNames['yellow']
+			'faction': 'crimean'
 		}, {
 			'type': 'card'
 		}],
@@ -124,7 +124,7 @@ var originalDeck = [{
 		}],
 		'gain': [{
 			'type': 'money',
-			'color': colorNames['yellow']
+			'faction': 'crimean'
 		}, {
 			'type': 'money',
 			'count': 2
@@ -142,13 +142,13 @@ var originalDeck = [{
 	'e1': {
 		'move': [{
 			'type': 'encounter_or_factory',
-			'color': colorNames['green']
+			'faction': 'albion'
 		}, {
 			'type': 'worker'
 		}],
 		'gain': [{
 			'type': 'character_or_mech',
-			'color': colorNames['violet']
+			'faction': 'togawa'
 		}, {
 			'type': 'worker'
 		}, {
@@ -192,7 +192,7 @@ var originalDeck = [{
 		}],
 		'gain': [{
 			'type': 'money',
-			'color': colorNames['yellow']
+			'faction': 'crimean'
 		}, {
 			'type': 'power',
 			'count': 2
@@ -214,7 +214,7 @@ var originalDeck = [{
 		'move': [{
 			'attack': 5,
 			'type': 'character_or_mech',
-			'color': colorNames['black']
+			'faction': 'saxony'
 		}, {
 			'type': 'worker'
 		}],
@@ -229,13 +229,13 @@ var originalDeck = [{
 		'move': [{
 			'attack': 5,
 			'type': 'character_or_mech',
-			'color': colorNames['black']
+			'faction': 'saxony'
 		}, {
 			'type': 'mech'
 		}],
 		'gain': [{
 			'type': 'character_or_mech',
-			'color': colorNames['red']
+			'faction': 'rusviet'
 		}, {
 			'type': 'character_or_mech'
 		}, {
@@ -255,7 +255,7 @@ var originalDeck = [{
 	'e1': {
 		'move': [{
 			'type': 'encounter_or_factory',
-			'color': colorNames['violet']
+			'faction': 'togawa'
 		}, {
 			'type': 'mech'
 		}, {
@@ -263,7 +263,7 @@ var originalDeck = [{
 		}],
 		'gain': [{
 			'type': 'character_or_mech',
-			'color': colorNames['violet']
+			'faction': 'togawa'
 		}, {
 			'type': 'character_or_mech'
 		}],
@@ -272,13 +272,13 @@ var originalDeck = [{
 	'e2': {
 		'move': [{
 			'type': 'encounter_or_factory',
-			'color': colorNames['violet']
+			'faction': 'togawa'
 		}, {
 			'type': 'mech'
 		}],
 		'gain': [{
 			'type': 'power',
-			'color': colorNames['black']
+			'faction': 'saxony'
 		}, {
 			'type': 'money'
 		}, {
@@ -297,7 +297,7 @@ var originalDeck = [{
 	'e1': {
 		'move': [{
 			'type': 'encounter_or_factory',
-			'color': colorNames['white']
+			'faction': 'polania'
 		}, {
 			'type': 'mech'
 		}, {
@@ -313,7 +313,7 @@ var originalDeck = [{
 	'e2': {
 		'move': [{
 			'type': 'encounter_or_factory',
-			'color': colorNames['white']
+			'faction': 'polania'
 		}, {
 			'type': 'mech'
 		}],
@@ -377,7 +377,7 @@ var originalDeck = [{
 		}],
 		'gain': [{
 			'type': 'worker',
-			'color': colorNames['red']
+			'faction': 'rusviet'
 		}, {
 			'type': 'worker'
 		}, {
@@ -388,7 +388,7 @@ var originalDeck = [{
 	'e2': {
 		'move': [{
 			'type': 'worker',
-			'color': colorNames['blue']
+			'faction': 'nordic'
 		}, {
 			'type': 'encounter_or_factory'
 		}, {
@@ -413,7 +413,7 @@ var originalDeck = [{
 	'e1': {
 		'move': [{
 			'type': 'worker',
-			'color': colorNames['blue']
+			'faction': 'nordic'
 		}, {
 			'type': 'mech'
 		}],
@@ -426,7 +426,7 @@ var originalDeck = [{
 	'e2': {
 		'move': [{
 			'type': 'worker',
-			'color': colorNames['blue']
+			'faction': 'nordic'
 		}, {
 			'type': 'mech'
 		}],
@@ -451,7 +451,7 @@ var originalDeck = [{
 		'move': [{
 			'attack': 4,
 			'type': 'character_or_mech',
-			'color': colorNames['black']
+			'faction': 'saxony'
 		}, {
 			'type': 'encounter_or_factory'
 		}, {
@@ -466,7 +466,7 @@ var originalDeck = [{
 		'move': [{
 			'attack': 5,
 			'type': 'character_or_mech',
-			'color': colorNames['black']
+			'faction': 'saxony'
 		}, {
 			'type': 'encounter_or_factory'
 		}, {
@@ -553,10 +553,10 @@ var originalDeck = [{
 		}],
 		'gain': [{
 			'type': 'money',
-			'color': colorNames['yellow']
+			'faction': 'crimean'
 		}, {
 			'type': 'money',
-			'color': colorNames['yellow']
+			'faction': 'crimean'
 		}],
 		'recruit': ['card']
 	},
@@ -591,7 +591,7 @@ var originalDeck = [{
 		}],
 		'gain': [{
 			'type': 'power',
-			'color': colorNames['black']
+			'faction': 'saxony'
 		}, {
 			'type': 'character_or_mech'
 		}, {
@@ -633,7 +633,7 @@ var originalDeck = [{
 		}],
 		'gain': [{
 			'type': 'money',
-			'color': colorNames['yellow']
+			'faction': 'crimean'
 		}, {
 			'type': 'money'
 		}, {
@@ -657,7 +657,7 @@ var originalDeck = [{
 		}],
 		'gain': [{
 			'type': 'worker',
-			'color': colorNames['green']
+			'faction': 'albion'
 		}, {
 			'type': 'worker'
 		}, {
@@ -673,7 +673,7 @@ var originalDeck = [{
 		}],
 		'gain': [{
 			'type': 'character_or_mech',
-			'color': colorNames['green']
+			'faction': 'albion'
 		}, {
 			'type': 'worker'
 		}, {
@@ -705,7 +705,7 @@ var originalDeck = [{
 	'e2': {
 		'move': [{
 			'type': 'encounter_or_factory',
-			'color': colorNames['green']
+			'faction': 'albion'
 		}, {
 			'attack': 'worker',
 			'type': 'worker'

@@ -1,17 +1,17 @@
 <!doctype HTML>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Scythe Automa</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link href="https://fonts.googleapis.com/css?family=Anton|Neuton" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/reset.css">
+  <link type="text/css" rel="stylesheet" href="css/font-awesome.min.css">
   <link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  
-  
   <div id="scythe-container">
     <div id="bg">
       <div class="g g1"></div>
@@ -19,30 +19,116 @@
       <div class="g g3"></div>
       <div class="g g4"></div>
     </div>
-  	<div class="scythe-view presentation" id="presentation" data-bind="css: {current:current}">
-      <div class="container center">
-  		<div class="t1">SCYTHE AUTOMA</div>
-      <div class="footer">
-        <div data-bind="visible:isLang">
-          <label>Language</label>
-          <select data-bind="options:languages,value:lan">
-          </select>
-        </div>        
-        <button data-bind="text:txt_continue,click:continueAction">Continuar</button>
+    <div class="scythe-view view_alert" id="view_alert" data-bind="css: {current:current}">
+      <div class="alert-cont center">
+        <p data-bind="text:text">fdsfsdfsdfdf</p>
+        <div class="footer">
+          <button class="min" data-bind="text:txt_ok,click:closeAlert">Aceptar</button>
+        </div>
       </div>
-      
     </div>
-  	</div>
-  	<div class="scythe-view" id="view_new" data-bind="css: {current:current}">
+    <div class="scythe-view presentation" id="presentation" data-bind="css: {current:current}">
+      <div class="container center">
+        <div class="t1">SCYTHE AUTOMA</div>
+        <div class="footer">
+          <div data-bind="visible:isLang">
+            <label>Language</label>
+            <select data-bind="options:languages,value:lan">
+            </select>
+          </div>
+          <button data-bind="text:txt_continue,click:continueAction">Continuar</button>
+        </div>
+      </div>
+    </div>
+    <div class="scythe-view" id="view_new" data-bind="css: {current:current}">
       <div class="container">
         <div class="t1 center" data-bind="text:txt_title"></div>
         <p class="center" data-bind="text:txt_present"></p>
-      </div>  		
-  	</div>
+        <div class="faction-list" data-bind="foreach:factions">
+          <div data-bind="attr:{class:className},click:changePlayer">
+            <div class="faction-type">
+              <div class="icon"><i class="" aria-hidden="true"  data-bind="attr:{class:playerIcon}"></i></div>
+              <div class="type" data-bind="text:playerName"></div>
+            </div>
+            <div class="faction-to">
+              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </div>
+            <div class="faction-flag">
+              <div class="faction">
+                <img src="" data-bind="attr:{src:icon}"/>
+              </div>
+              <div class="faction-title" data-bind="text:title"></div>
+              <div class="faction-power">
+                <div class="faction-icon-power">
+                  <img src="images/power.png" alt="">
+                  <span data-bind="text:power"></span>
+                </div>
+                <div class="faction-icon-card">
+                  <img src="images/card-power.png" alt="">
+                  <span data-bind="text:cards"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button data-bind="text:txt_continue,click:continueAction"></button>
+        </div>
+      </div>
+    </div>
+    <div  class="scythe-view" id="view_start_turn" data-bind="css: {current:current}">
+      <div class="container">
+        <div class="centered">
+          <div class="t1 center" data-bind="text:txt_title"></div>
+          <div class="player-turn">
+            <div class="player-img">
+              <img src="" data-bind="attr:{src:icon}"/>
+            </div>
+            <div class="player-title" data-bind="text:title"></div>            
+            <div class="player-sub">
+              (<i class="" aria-hidden="true"  data-bind="attr:{class:playerIcon}"></i>
+              <span class="type" data-bind="text:playerName"></span>)
+            </div>
+          </div>
+          <div class="footer">
+            <button data-bind="text:txt_continue,click:continueAction"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div  class="scythe-view" id="view_human_start" data-bind="css: {current:current}">
+      <div class="container">
+        <div class="centered centered_human_start">
+          <div class="player-turn min">
+            <div class="player-img">
+              <img src="" data-bind="attr:{src:icon}"/>
+            </div>
+            <div class="player-title" data-bind="text:title"></div>            
+            <div class="player-sub">
+              (<i class="" aria-hidden="true"  data-bind="attr:{class:playerIcon}"></i>
+              <span class="type" data-bind="text:playerName"></span>)
+            </div>
+          </div>
+          <p data-bind="text:txt_choose"></p>
+          
+          <div class="button" data-bind="click:addAction">
+            <div data-bind="text:txt_add"></div>
+          </div>
+          <div class="button" data-bind="click:moveAction">
+            <div data-bind="text:txt_move"></div>
+          </div>
+          <p>or:</p>
+          <div class="button btn-continue" data-bind="click:continueAction">
+            <div data-bind="text:txt_continue"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <script type="text/javascript" src="js/vendor/knockout.min.js"></script>
-   <!--<script type="text/javascript" src="js/spanish.js"></script>
+  <!--<script type="text/javascript" src="js/spanish.js"></script>
   <script type="text/javascript" src="js/french.js"></script> -->
   <script type="text/javascript" src="js/scythe.min.js"></script>
 </body>
+
 </html>

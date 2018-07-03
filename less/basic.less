@@ -63,7 +63,6 @@ body{
 }
 
 
-
 .scythe-view{
 	position: absolute;
 	z-index: 10;
@@ -83,17 +82,31 @@ body{
 }
 .container{
 	position: relative;
-	padding:20px;	
+	padding:12px 20px 20px;	
 	margin:0 auto;
 	max-width: 440px;
 	height: 100%;//470px;
 }
 .footer{
-	padding:20px;
+	padding:20px 20px 40px;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
+}
+
+.centered{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	.transform(translateY(-50%));
+	padding: 0 20px;
+	text-align: center;
+	.footer{
+		position:static;
+		padding: 0;
+	}
 }
 
 .center{
@@ -106,7 +119,7 @@ body{
 	color:#999;
 }
 .t1{
-	font-size: 36px;
+	font-size: 40px;
 }
 
 input,select,textarea,button,label{
@@ -145,10 +158,11 @@ select{
 		.input-base;
 	}
 }
-button{
+button,
+.button{
 	.font-alt;
 	.uppercase;
-	font-size: 26px;
+	font-size: 30px;
 	padding: 11px 6px 8px;
 	line-height: 1;
 	background-color: @color-primary;
@@ -158,8 +172,25 @@ button{
 	&:hover{
 		background-color: lighten(@color-primary, 4%)
 	}
+	&.min{
+		font-size: 22px;
+		padding: 9px 20px 6px;
+		width:auto;
+	}
+}
+.button{
+	display: flex;
+	justify-content:center;
 }
 
+
+.faction{
+	img{
+		display: block;
+		width: 100%;
+		height: auto;
+	}
+}
 	
 
 
