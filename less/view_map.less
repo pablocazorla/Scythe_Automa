@@ -1,0 +1,63 @@
+.map-container {
+  position: relative;
+  margin-bottom: 15px;
+  //background-color: rgba(0,0,0,.1);
+  box-shadow: inset 0 1px 6px rgba(0,0,0,.6);
+  background: #fbf6ed url('../images/bg.jpg') center;
+  background-size: 100% 100%;
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 6px;
+  .map-back-rivers{
+    position: absolute;
+    top: 9%;
+    left: 5%;
+    width: 95%;
+    height: auto;
+    display: block;
+    opacity: .4;
+  }
+  svg {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: auto;
+
+    .people{
+      &.rusviet{
+        path{
+          fill:red;
+        }
+      }
+    }
+  }
+  .factory-icon{
+    fill:#8419b3;
+    opacity: .3;
+  }
+  .base {
+    opacity: 0;
+  }
+  .hex{
+    cursor: pointer;
+    image{
+      opacity:.5;
+    }
+  }
+  .hexagon{
+    .base {
+      opacity: 1;
+      stroke-linejoin: miter;
+
+      fill: rgba(255,255,255,.3);
+
+      stroke: rgba(0,0,0,.3);
+      stroke-width: 3;
+
+      &:hover{
+        fill: rgba(255,255,255,.5);
+      }
+    }
+  }
+  
+}

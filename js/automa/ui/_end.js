@@ -5,7 +5,7 @@
 	}
 	
 	GAME = createGame([1,0,2]);
-	force('view_human_start');
+	force('view_map');
 
 
 })();

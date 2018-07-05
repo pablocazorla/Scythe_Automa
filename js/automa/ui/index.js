@@ -5,5 +5,6 @@
 //@prepros-append view_new.js
 //@prepros-append view_start_turn.js
 //@prepros-append view_human_start.js
+//@prepros-append view_map.js
 
 //@prepros-append _end.js
