@@ -1,5 +1,51 @@
 .player-turn{
   padding: 5px 0 15px;
+  .player-icon-unit{
+    width: 60px;
+    margin: 0 auto 4px;
+    svg{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    &.rusviet {
+      path {
+        fill: @color-icon-rusviet;
+      }
+    }
+    &.togawa {
+      path {
+        fill: @color-icon-togawa;
+      }
+    }
+    &.crimean {
+      path {
+        fill: @color-icon-crimean;
+      }
+    }
+    &.saxony {
+      path {
+        fill: @color-icon-saxony;
+      }
+    }
+    &.polania {
+      path {
+        fill: @color-icon-polania;
+        stroke: #777;
+        stroke-width:1px;
+      }
+    }
+    &.albion {
+      path {
+        fill: @color-icon-albion;
+      }
+    }
+    &.nordic {
+      path {
+        fill: @color-icon-nordic;
+      }
+    }
+  }
   .player-img{
     max-width: 200px;
     margin: 0 auto 6px;

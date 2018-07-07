@@ -14,19 +14,15 @@ viewModelList.push(function() {
 		playerName: ko.observable(''),
 		playerIcon: ko.observable(''),
 
-		txt_choose:  _i('Please, choose one action to do:'),		
-		txt_add:  _i('ADD a worker or mech'),
-		txt_move:  _i('MOVE a worker or mech'),
+		txt_choose:  _i('Please, choose one action to do:'),
+		txt_move_add:  _i('MOVE or ADD units'),
 		txt_continue:  _i('End your turn')		
 	};
 
 	var currentPlayer = null;
 
-	vm.addAction = function(){
-		
-	};
-	vm.moveAction = function(){
-		
+	vm.moveOrAddAction = function(){
+		goToView('view_map');
 	};
 	vm.continueAction = function(){
 		GAME.advancePlayer();

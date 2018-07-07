@@ -1,13 +1,20 @@
+#view_map {
+  p {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0 0 8px;
+  }
+}
+
 .map-container {
   position: relative;
-  margin-bottom: 15px;
-  //background-color: rgba(0,0,0,.1);
-  box-shadow: inset 0 1px 6px rgba(0,0,0,.6);
+  margin-bottom: 10px; //background-color: rgba(0,0,0,.1);
+  box-shadow: inset 0 1px 6px rgba(0, 0, 0, .6);
   background: #fbf6ed url('../images/bg.jpg') center;
   background-size: 100% 100%;
-  border: 1px solid rgba(255,255,255,.7);
+  border: 1px solid rgba(255, 255, 255, .7);
   border-radius: 6px;
-  .map-back-rivers{
+  .map-back-rivers {
     position: absolute;
     top: 9%;
     left: 5%;
@@ -23,41 +30,261 @@
     width: 100%;
     height: auto;
 
-    .people{
-      &.rusviet{
-        path{
-          fill:red;
+    cursor: default;
+
+    .people {
+      &.rusviet {
+        path {
+          fill: @color-icon-rusviet;
+        }
+      }
+      &.togawa {
+        path {
+          fill: @color-icon-togawa;
+        }
+      }
+      &.crimean {
+        path {
+          fill: @color-icon-crimean;
+        }
+      }
+      &.saxony {
+        path {
+          fill: @color-icon-saxony;
+        }
+      }
+      &.polania {
+        path {
+          fill: @color-icon-polania;
+          stroke: #777;
+          stroke-width:1px;
+        }
+      }
+      &.albion {
+        path {
+          fill: @color-icon-albion;
+        }
+      }
+      &.nordic {
+        path {
+          fill: @color-icon-nordic;
         }
       }
     }
   }
-  .factory-icon{
-    fill:#8419b3;
+  .factory-icon {
+    fill: #8419b3;
     opacity: .3;
   }
   .base {
     opacity: 0;
   }
-  .hex{
-    cursor: pointer;
-    image{
-      opacity:.5;
+  .hex {
+    image {
+      opacity: .2;
     }
   }
-  .hexagon{
+  .hexagon {
     .base {
       opacity: 1;
       stroke-linejoin: miter;
 
-      fill: rgba(255,255,255,.3);
+      fill: rgba(255, 255, 255, .3);
 
-      stroke: rgba(0,0,0,.3);
+      stroke: rgba(0, 0, 0, .3);
       stroke-width: 3;
 
-      &:hover{
-        fill: rgba(255,255,255,.5);
+      .transition(fill .1s);
+
+      &:hover {
+        fill: rgba(255, 255, 255, .5);
+      }
+      &.withEnemies {
+        .transition(fill .3s);
+        fill: rgba(255, 0, 0, .6);
       }
     }
   }
+}
+
+.map-human-options {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  //justify-content: space-between;
+  align-items: center;
+  .font-alt;
+  font-size: 20px;
+  line-height: 1;
   
+  .map-human-undo {
+    width: 50%;
+    text-align: left;
+    padding: 0 15px;
+    font-size: 14px;
+    line-height: 1;
+    opacity:0;
+    .transition(opacity .3s);
+    i {      
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+      margin-right: 3px;
+    }
+    span{
+      vertical-align: middle;
+    }
+    &.enabled{
+      opacity:.6;
+      cursor:pointer;
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+  .map-human-pan {
+    background: #fbf6ed url('../images/bg.jpg') center right;
+    background-size: 200%;
+    margin: 2px;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, .3);
+    border-radius: 10px 0 6px 0;
+    padding: 10px 0;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .map-op {
+      padding: 0 3px;
+      opacity: .4;
+      .transition(opacity .2s);
+
+      .map-op-ic {
+        display: inline-block;
+        width: 15px;
+        margin: 0 0 0 6px;
+        position: relative;
+        top: 2px;
+        svg {
+          display: block;
+          width: 100%;
+          height: auto;
+          &.rusviet {
+            path {
+              fill: @color-icon-rusviet;
+            }
+          }
+          &.togawa {
+            path {
+              fill: @color-icon-togawa;
+            }
+          }
+          &.crimean {
+            path {
+              fill: @color-icon-crimean;
+            }
+          }
+          &.saxony {
+            path {
+              fill: @color-icon-saxony;
+            }
+          }
+          &.polania {
+            path {
+              fill: @color-icon-polania;
+            }
+          }
+          &.albion {
+            path {
+              fill: @color-icon-albion;
+            }
+          }
+          &.nordic {
+            path {
+              fill: @color-icon-nordic;
+            }
+          }
+          &:hover {
+            opacity: .85;
+          }
+        }
+      }
+
+      &.mo-left {
+        font-size: 14px;
+      }
+
+      &.mo-right {
+        .map-op-ic {
+          cursor: pointer;
+        }
+      }
+
+
+      &.selected {
+        opacity: 1;
+      }
+      &.mo-center {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+#map-cursor {
+  position: absolute; // top: 30%;
+  //left: 30%;
+  width: 0;
+  height: 0;
+  .map-cursor-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 15px;
+    svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      &.rusviet {
+        path {
+          fill: @color-icon-rusviet;
+        }
+      }
+      &.togawa {
+        path {
+          fill: @color-icon-togawa;
+        }
+      }
+      &.crimean {
+        path {
+          fill: @color-icon-crimean;
+        }
+      }
+      &.saxony {
+        path {
+          fill: @color-icon-saxony;
+        }
+      }
+      &.polania {
+        path {
+          fill: @color-icon-polania;
+        }
+      }
+      &.albion {
+        path {
+          fill: @color-icon-albion;
+        }
+      }
+      &.nordic {
+        path {
+          fill: @color-icon-nordic;
+        }
+      }
+      &:hover {
+        opacity: .85;
+      }
+    }
+  }
 }

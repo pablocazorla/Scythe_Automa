@@ -8,7 +8,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'15': {
 		'num': 15,
@@ -19,7 +20,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'22': {
 		'num': 22,
@@ -29,17 +31,22 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'23': {
 		'num': 23,
 		'type': 'farm',
 		'people': {
-			'worker': 0,
+			'worker': 5,
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': 'crimean',
+		'attack': {
+			'faction': 'rusviet',
+			'mech': 3,
+		}
 	},
 	'24': {
 		'num': 24,
@@ -50,7 +57,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'25': {
 		'num': 25,
@@ -60,7 +68,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'26': {
 		'num': 26,
@@ -70,7 +79,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'27': {
 		'num': 27,
@@ -80,7 +90,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'31': {
 		'num': 31,
@@ -90,7 +101,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'32': {
 		'num': 32,
@@ -101,7 +113,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'33': {
 		'num': 33,
@@ -111,7 +124,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'34': {
 		'num': 34,
@@ -122,7 +136,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'35': {
 		'num': 35,
@@ -133,7 +148,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'36': {
 		'num': 36,
@@ -143,7 +159,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'37': {
 		'num': 37,
@@ -154,7 +171,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'41': {
 		'num': 41,
@@ -165,7 +183,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'42': {
 		'num': 42,
@@ -175,7 +194,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'43': {
 		'num': 43,
@@ -186,7 +206,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'44': {
 		'num': 44,
@@ -196,7 +217,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'45': {
 		'num': 45,
@@ -206,7 +228,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'46': {
 		'num': 46,
@@ -217,7 +240,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'47': {
 		'num': 47,
@@ -227,7 +251,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'48': {
 		'num': 48,
@@ -238,7 +263,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'51': {
 		'num': 51,
@@ -248,18 +274,20 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'52': {
 		'num': 52,
 		'type': 'aldea',
 		'encounter': true,
 		'people': {
-			'worker': 2,
-			'mech': 4,
-			'character': 1
+			'worker': 0,
+			'mech': 0,
+			'character': 0
 		},
-		'faction': 'rusviet'
+		'faction': 'rusviet',
+		'attack': null
 	},
 	'53': {
 		'num': 53,
@@ -269,7 +297,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'54': {
 		'num': 54,
@@ -279,7 +308,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'55': {
 		'num': 55,
@@ -289,7 +319,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'56': {
 		'num': 56,
@@ -300,7 +331,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'57': {
 		'num': 57,
@@ -310,7 +342,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'61': {
 		'num': 61,
@@ -321,7 +354,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'62': {
 		'num': 62,
@@ -331,7 +365,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'63': {
 		'num': 63,
@@ -342,7 +377,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'64': {
 		'num': 64,
@@ -352,7 +388,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'65': {
 		'num': 65,
@@ -362,7 +399,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'66': {
 		'num': 66,
@@ -373,7 +411,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'67': {
 		'num': 67,
@@ -383,7 +422,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'71': {
 		'num': 71,
@@ -393,7 +433,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'72': {
 		'num': 72,
@@ -404,7 +445,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'73': {
 		'num': 73,
@@ -415,7 +457,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'74': {
 		'num': 74,
@@ -426,7 +469,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'75': {
 		'num': 75,
@@ -436,7 +480,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'76': {
 		'num': 76,
@@ -447,7 +492,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'77': {
 		'num': 77,
@@ -457,7 +503,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'81': {
 		'num': 81,
@@ -468,7 +515,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'82': {
 		'num': 82,
@@ -478,7 +526,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'83': {
 		'num': 83,
@@ -488,7 +537,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'84': {
 		'num': 84,
@@ -498,7 +548,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'85': {
 		'num': 85,
@@ -509,7 +560,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'86': {
 		'num': 86,
@@ -519,7 +571,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'87': {
 		'num': 87,
@@ -529,7 +582,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'88': {
 		'num': 88,
@@ -540,7 +594,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'93': {
 		'num': 93,
@@ -551,7 +606,8 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	},
 	'94': {
 		'num': 94,
@@ -561,6 +617,36 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null
+		'faction': null,
+		'attack': null
 	}
+};
+
+// init Map
+var initialMap = {
+	'rusviet': [48, 47, 57],
+	'togawa': [88, 87, 77],
+	'crimean': [93, 84, 94],
+	'saxony': [81, 82, 71],
+	'polania': [41, 42, 51],
+	'albion': [12, 22, 23],
+	'nordic': [15, 25, 26],
+};
+players.forEach(function(pl) {
+
+	var fact = pl.factionName;
+	var inMap = initialMap[fact];
+
+	G.MAP[inMap[0]].faction = fact;
+	G.MAP[inMap[0]].people.character = 1;
+
+	G.MAP[inMap[1]].faction = fact;
+	G.MAP[inMap[1]].people.worker = 1;
+
+	G.MAP[inMap[2]].faction = fact;
+	G.MAP[inMap[2]].people.worker = 1;
+});
+
+G.getBaseMapIndex = function(factionName){
+	return initialMap[factionName][0];
 };

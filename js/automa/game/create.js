@@ -3,6 +3,7 @@
 // Create Players
 var players = [],
 	currentPlayerIndex = -1;
+
 factionToCreate.forEach(function(facInd, i){
 	if(facInd > 0){
 		var player = cloneObject(GAMECONFIG.playerTypes[facInd]),
@@ -11,6 +12,10 @@ factionToCreate.forEach(function(facInd, i){
 		player.factionName = faction.name;
 		player.power = faction.power;
 		player.cards = faction.cards;
+		player.board = {
+			'worker': 6,
+			'mech': 4
+		};
 
 		players.push(player);
 
@@ -26,4 +31,14 @@ G.currentPlayer = function(){
 };
 G.advancePlayer = function(){
 	currentPlayerIndex = currentPlayerIndex >= (players.length - 1) ? 0 : currentPlayerIndex + 1;
+};
+
+G.getPlayerByFaction = function(faction){
+	var pl = null;
+	players.forEach(function(p){
+		if(p.factionName === faction){
+			pl = p;
+		}
+	});
+	return pl;
 };
