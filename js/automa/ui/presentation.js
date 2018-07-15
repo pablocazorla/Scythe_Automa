@@ -1,4 +1,4 @@
-//Presentation
+/* VIEW: PRESENTATION *****************************/
 var presentationVM = (function() {
 	var vm = {
 		current: ko.observable(true),
@@ -16,6 +16,7 @@ var presentationVM = (function() {
 	} else {
 		vm.isLang = false;
 	}
+	
 	vm.lan.subscribe(function(v){		
 		setLanguage(v);
 		// texts
@@ -28,13 +29,7 @@ var presentationVM = (function() {
 		goToView('view_new');
 	};
 
-
-
 	ko.applyBindings(vm, document.getElementById('presentation'));
 	return vm;
 })();
-
-// setTimeout(function(){
-// 	presentationVM.continueAction();
-// },300);
-
+/* end VIEW: PRESENTATION *****************************/

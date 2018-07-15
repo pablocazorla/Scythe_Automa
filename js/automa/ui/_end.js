@@ -4,8 +4,9 @@
 		goToView(vn);
 	}
 	
-	GAME = createGame([1,0,2,]);
-	force('view_attack_worker');
+	GAME = createGame([2,0,2,]);
+	force('view_war');
+	//force('view_map');
 
 
 })();

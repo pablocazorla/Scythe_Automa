@@ -7,6 +7,9 @@
       display: block;
       width: 100%;
       height: auto;
+      &.inverted{
+        .transform(scale(-1,1));
+      }
     }
     &.rusviet {
       path {
@@ -45,6 +48,7 @@
         fill: @color-icon-nordic;
       }
     }
+    
   }
   .player-img{
     max-width: 200px;
@@ -83,4 +87,5 @@
       line-height: 1;
     }
   }
+  
 }

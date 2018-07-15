@@ -37,3 +37,7 @@ var extendObject = function () {
 
 	return extended;
 };
+
+var isOdd = function (num) {
+  return num % 2;
+};

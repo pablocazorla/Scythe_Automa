@@ -8,7 +8,7 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null,
+		'faction': 'albion',
 		'attack': null
 	},
 	'15': {
@@ -20,7 +20,7 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null,
+		'faction': 'nordic',
 		'attack': null
 	},
 	'22': {
@@ -38,14 +38,14 @@ G.MAP = {
 		'num': 23,
 		'type': 'farm',
 		'people': {
-			'worker': 5,
-			'mech': 0,
+			'worker': 2,
+			'mech': 2,
 			'character': 0
 		},
 		'faction': 'crimean',
 		'attack': {
 			'faction': 'rusviet',
-			'mech': 3,
+			'mech': 2
 		}
 	},
 	'24': {
@@ -53,8 +53,8 @@ G.MAP = {
 		'type': 'aldea',
 		'encounter': true,
 		'people': {
-			'worker': 0,
-			'mech': 0,
+			'worker': 3,
+			'mech': 2,
 			'character': 0
 		},
 		'faction': null,
@@ -66,7 +66,7 @@ G.MAP = {
 		'people': {
 			'worker': 0,
 			'mech': 0,
-			'character': 0
+			'character': 1
 		},
 		'faction': null,
 		'attack': null
@@ -183,7 +183,7 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null,
+		'faction': 'polania',
 		'attack': null
 	},
 	'42': {
@@ -263,7 +263,7 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null,
+		'faction': 'rusviet',
 		'attack': null
 	},
 	'51': {
@@ -286,7 +286,7 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': 'rusviet',
+		'faction': null,
 		'attack': null
 	},
 	'53': {
@@ -515,7 +515,7 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null,
+		'faction': 'saxony',
 		'attack': null
 	},
 	'82': {
@@ -594,7 +594,7 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null,
+		'faction': 'togawa',
 		'attack': null
 	},
 	'93': {
@@ -606,7 +606,7 @@ G.MAP = {
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null,
+		'faction': 'crimean',
 		'attack': null
 	},
 	'94': {
@@ -632,7 +632,7 @@ var initialMap = {
 	'albion': [12, 22, 23],
 	'nordic': [15, 25, 26],
 };
-players.forEach(function(pl) {
+players.forEach(function (pl) {
 
 	var fact = pl.factionName;
 	var inMap = initialMap[fact];
@@ -645,8 +645,31 @@ players.forEach(function(pl) {
 
 	G.MAP[inMap[2]].faction = fact;
 	G.MAP[inMap[2]].people.worker = 1;
+	G.MAP[inMap[2]].people.mech = 1;
 });
 
-G.getBaseMapIndex = function(factionName){
+G.getBaseMapIndex = function (factionName) {
 	return initialMap[factionName][0];
+};
+
+G.evaluateAttack = function () {
+	var hexs = {
+		workers: [],
+		war: null
+	};
+
+	for (var a in G.MAP) {
+		var h = G.MAP[a];
+		if (h.attack) {
+			if (h.people.mech === 0 && h.people.character === 0) {
+				hexs.workers.push(cloneObject(h));
+			} else {
+				hexs.war = cloneObject(h);
+			}
+		}
+	}
+	return hexs;
+};
+G.setWinnerHex = function (num, faction) {
+	G.MAP[num].winner = faction;
 };

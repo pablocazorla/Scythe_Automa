@@ -1,53 +1,46 @@
+/* VIEW: NEW *****************************/
+/* Faction Button */
 var factionBtnVM = function(factionIndex, playerTypeIndex) {
 
-
-	var faction = GAMECONFIG.factions[factionIndex];
-
 	// Initial Player
-	var player = GAMECONFIG.playerTypes[playerTypeIndex];
-	var className = player.name === 'None' ? 'disabled' : faction.name;
+	var faction = GAMECONFIG.factions[factionIndex],	
+		player = GAMECONFIG.playerTypes[playerTypeIndex],
+		playerTypesLength = GAMECONFIG.playerTypes.length,
+		className = player.name === 'None' ? 'disabled' : faction.name;
 
 	var vm = {
 		title: _i(capitalize(faction.name)),
-		className: ko.observable('faction-item ' + className),
+		playerTypeIndex: playerTypeIndex,
 		icon: 'images/factions/' + faction.name + '.png',
 		power: faction.power,
 		cards: faction.cards,
+		className: ko.observable('faction-item ' + className),
 		playerName: ko.observable(_i(player.name)),
-		playerIcon: ko.observable(player.icon),
-		playerTypeIndex: playerTypeIndex
+		playerIcon: ko.observable(player.icon)		
 	};
 
-
-	var length = GAMECONFIG.playerTypes.length;
-
-
 	vm.changePlayer = function(){
-		playerTypeIndex++;
-		playerTypeIndex = playerTypeIndex >= length ? 0 : playerTypeIndex;
+		vm.playerTypeIndex++;
+		vm.playerTypeIndex = vm.playerTypeIndex >= playerTypesLength ? 0 : vm.playerTypeIndex;
 
-		var player = GAMECONFIG.playerTypes[playerTypeIndex];
-		var className = player.name === 'None' ? 'disabled' : faction.name;
+		var player = GAMECONFIG.playerTypes[vm.playerTypeIndex],
+			className = player.name === 'None' ? 'disabled' : faction.name;
 
 		vm.className('faction-item ' + className);
 		vm.playerName(_i(player.name));
 		vm.playerIcon(player.icon);
-
-		vm.playerTypeIndex = playerTypeIndex;
 	};
 
 	return vm;
 };
 
-
+/* View New VM */
 viewModelList.push(function() {
 
 	var vm = {
-
 		/*-----------------------*/
 		viewName: 'view_new',
 		/*-----------------------*/
-
 		current: ko.observable(false),
 		// texts
 		txt_title: _i('New game'),
@@ -55,8 +48,9 @@ viewModelList.push(function() {
 		txt_continue:  _i('Continue')
 	};
 
+	// Create Faction Buttons
 	var facts = [];
-	for (var i = 0; i < 7; i++) {
+	for (var i = 0; i < GAMECONFIG.factions.length; i++) {
 		var playerTypeIndex = 0;
 		playerTypeIndex = i === 0 ? 1 : playerTypeIndex; // human
 		playerTypeIndex = i === 2 ? 2 : playerTypeIndex; // ai - autometta
@@ -66,7 +60,6 @@ viewModelList.push(function() {
 	};
 	vm.factions = ko.observableArray(facts);
 
-
 	vm.continueAction = function(){
 		var factions = vm.factions(),
 			areHumans = false,
@@ -75,20 +68,20 @@ viewModelList.push(function() {
 
 		factions.forEach(function(fact){
 			if(fact.playerTypeIndex === 1){
-				areHumans = true;
+				areHumans = true; // There is Human player
 			}
 			if(fact.playerTypeIndex > 1){
-				areAI = true;
+				areAI = true; // There is AI player
 			}
 			factionsToStart.push(fact.playerTypeIndex);
 		});		
 		
-		if(areHumans && areAI){
+		//if(areHumans && areAI){
 			GAME = createGame(factionsToStart);
 			goToView('view_start_turn');			
-		}else{
-			showAlert(_i('Please, select almost 1 Human player and 1 Automa player.'));
-		}
+		//}else{
+		// 	showAlert(_i('Please, select almost 1 Human player and 1 Automa player.'));
+		//}
 	};
 
 	currentView.subscribe(function(newValue) {
@@ -97,3 +90,4 @@ viewModelList.push(function() {
 	ko.applyBindings(vm, document.getElementById(vm.viewName));
 	return vm;
 });
+/* end VIEW: NEW *****************************/

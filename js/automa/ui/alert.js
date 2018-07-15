@@ -1,10 +1,9 @@
+/* VIEW: ALERT *****************************/
 viewModelList.push(function() {
 	var vm = {
-
 		/*-----------------------*/
 		viewName: 'view_alert',
 		/*-----------------------*/
-
 		current: ko.observable(false),
 		// texts
 		txt_ok: _i('Ok'),
@@ -19,6 +18,8 @@ viewModelList.push(function() {
 		vm.current(newValue !== '');
 		vm.text(newValue);
 	});
+	
 	ko.applyBindings(vm, document.getElementById(vm.viewName));
 	return vm;
 });
+/* end VIEW: ALERT *****************************/
