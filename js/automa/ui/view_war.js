@@ -27,9 +27,10 @@ viewModelList.push(function() {
 		if(hex_attack){
 			if(p1.ai && p2.ai){
 				// between AIs
-				log('between AIsssss');
-				var a = GAME.combatBetweenAIs(p1,p2);
-				console.log(a);
+				goToView('view_war_bet_ai');
+				//log('between AIsssss');
+				//var a = GAME.combatBetweenAIs(p1,p2);
+				//console.log(a);
 			}else{
 				if(!p1.ai && !p2.ai){
 					// between Humans

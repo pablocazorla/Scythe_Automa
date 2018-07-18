@@ -69,15 +69,8 @@ G.combatBetweenAIs = function(player1,player2){
 	var power2 = card2.combat.power[sec2];
 	power2 = player2.power < power2 ? player2.power : power2;
 
-	// log('---------------------');
-	// log('player1.power',player1.power);
-	// log('card1',card1);
-	// log('power1',power1);
-	// log('-');
-	// log('player2.power',player2.power);
-	// log('card2',card2);
-	// log('power2',power2);
-	// log('---------------------');
+	G.getPlayerByFaction(player1.factionName).power -= power1;
+	G.getPlayerByFaction(player2.factionName).power -= power2;
 
 	return {
 		player1:{

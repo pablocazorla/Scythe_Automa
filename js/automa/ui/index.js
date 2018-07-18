@@ -10,6 +10,7 @@
 //@prepros-append view_attack_worker.js
 //@prepros-append view_war.js
 //@prepros-append view_war_bet_humans.js
+//@prepros-append view_war_bet_ai.js
 //@prepros-append view_war_results.js
 
 //@prepros-append _end.js

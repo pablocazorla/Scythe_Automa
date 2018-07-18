@@ -14,6 +14,42 @@
       margin-top: 5px;
     }
   }
+  .pl-pow{
+    .pl-pow-lab{
+
+    }
+    .pl-pow-num{
+      .font-alt;
+      line-height: 1;
+      font-size: 30px;
+    }
+    .pl-pow-img{
+      position: relative;
+      max-width: 90px;
+      height: 70px;
+      margin: 0 auto;
+      .pl-pow-num{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        .transform(translateX(-50%) translateY(-50%));
+        .font-alt;
+        line-height: 1;
+        font-size: 60px;
+        color:#FFF;
+        text-shadow: 0 0 20px #000;
+      }
+      img{
+        position: absolute;
+        .transform(translateY(-50%));
+        top: 50%;
+        display: block;
+        width: 100%;
+        height: auto;
+        opacity: .8;
+      }
+    }
+  }
 }
 
 #view_attack_worker{  
