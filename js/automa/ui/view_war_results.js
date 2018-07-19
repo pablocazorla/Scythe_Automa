@@ -67,9 +67,16 @@ viewModelList.push(function () {
 				var textHelp1 = _i('$faction, the losing faction, must retreat all of their units (mechs, characters, and workers) from the combat territory to their home base.');
 				textHelp1 = textHelp1.replace('$faction', capitalize(loser.factionName));
 				vm.txt_help1(textHelp1);
-				var textHelp2 = _i('$faction, the winner faction, places 1 star token in the combat space of the Triumph Track.');
-				textHelp2 = textHelp2.replace('$faction', capitalize(winner.factionName));
-				vm.txt_help2(textHelp2);			
+				
+				winner.board.starsByWar--;
+				if(winner.board.starsByWar >= 0){
+					winner.board.stars--;
+					var textHelp2 = _i('$faction, the winner faction, places 1 star token in the combat space of the Triumph Track.');
+					textHelp2 = textHelp2.replace('$faction', capitalize(winner.factionName));
+					vm.txt_help2(textHelp2);
+				}else{
+					vm.txt_help2('');
+				}				
 				
 				var baseIndex = GAME.getBaseMapIndex(loser.factionName);
 				

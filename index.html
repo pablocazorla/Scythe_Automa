@@ -533,6 +533,32 @@
         </div>
       </div>
 
+      <div class="scythe-view" id="view_cross_river" data-bind="css: {current:current}">
+        <div class="container">
+          <div class="centered">
+           
+            <div class="player-turn mid">
+              <div class="player-img">
+                <img src="" data-bind="attr:{src:icon}" />
+              </div>
+              <div class="player-title" data-bind="text:title"></div>
+              <div class="player-sub">
+                (
+                <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
+                <span class="type" data-bind="text:playerName"></span>)
+              </div>
+            </div>
+            <div class="tit center" data-bind="text:txt_title"></div>
+            <div class="cross-rivers">
+              <img src="images/cross-rivers.svg" />
+            </div>            
+            <div class="footer">
+              <button data-bind="text:txt_continue,click:continueAction"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
 
 

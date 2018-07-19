@@ -14,7 +14,9 @@ factionToCreate.forEach(function(facInd, i){
 		player.cards = faction.cards;
 		player.board = {
 			'worker': 6,
-			'mech': 4
+			'mech': 4,
+			'stars': 6,
+			'starsByWar': faction.name === 'saxony' ? 6 : 2
 		};
 
 		players.push(player);
@@ -25,6 +27,10 @@ factionToCreate.forEach(function(facInd, i){
 		} 
 	}
 });
+
+G.players = function(){
+	return players;
+};
 
 G.getCurrentPlayer = function(){
 	return players[currentPlayerIndex];

@@ -38,16 +38,27 @@ G.MAP = {
 		'num': 23,
 		'type': 'farm',
 		'people': {
-			'worker': 2,
-			'mech': 2,
+			'worker': 0,
+			'mech': 0,
 			'character': 0
 		},
-		'faction': 'crimean',
-		'attack': {
-			'faction': 'rusviet',
-			'mech': 2
-		}
+		'faction': null,
+		'attack': null
 	},
+	// '23': {
+	// 	'num': 23,
+	// 	'type': 'farm',
+	// 	'people': {
+	// 		'worker': 2,
+	// 		'mech': 2,
+	// 		'character': 0
+	// 	},
+	// 	'faction': 'crimean',
+	// 	'attack': {
+	// 		'faction': 'rusviet',
+	// 		'mech': 2
+	// 	}
+	// },
 	'24': {
 		'num': 24,
 		'type': 'aldea',

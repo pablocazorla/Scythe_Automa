@@ -4,9 +4,8 @@
 		goToView(vn);
 	}
 	
-//	GAME = createGame([2,0,2,]);
-//	force('view_war');
-	//force('view_map');
+	GAME = createGame([1,0,2]);
+	force('view_cross_river');
 
 
 })();
