@@ -85,7 +85,3 @@
 	/* CURRENT PLAYER *****************************/
 	var currentPlayer = null;
 	/* end CURRENT PLAYER *****************************/
-
-	/* MAP HEXAGON CONFLICT *****************************/
-	var hexConflict = null;
-	/* end MAP HEXAGON CONFLICT *****************************/

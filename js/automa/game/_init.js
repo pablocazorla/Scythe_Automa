@@ -46,7 +46,7 @@ var GAMECONFIG = {
 		icon: 'fa fa-cogs',
 		crossRiver: false,
 		strategy: 1,
-		stars: 0,
+		step: 0,
 		timeline: [{}, {}, {}, {}, {}, {
 			crossRiver: true
 		}, {}, {}, {}, {}, {
@@ -70,7 +70,7 @@ var GAMECONFIG = {
 		icon: 'fa fa-cogs',
 		crossRiver: false,
 		strategy: 1,
-		stars: 0,
+		step: 0,
 		timeline: [{}, {}, {}, {}, {
 			crossRiver: true
 		}, {}, {}, {}, {}, {
@@ -94,7 +94,7 @@ var GAMECONFIG = {
 		icon: 'fa fa-cogs',
 		crossRiver: false,
 		strategy: 1,
-		stars: 0,
+		step: 0,
 		timeline: [{}, {}, {}, {
 			crossRiver: true
 		}, {}, {}, {}, {}, {}, {
@@ -118,7 +118,7 @@ var GAMECONFIG = {
 		icon: 'fa fa-cogs',
 		crossRiver: true,
 		strategy: 1,
-		stars: 0,
+		step:0,
 		timeline: [{
 			crossRiver: true
 		}, {}, {}, {}, {}, {}, {}, {}, {

@@ -29,8 +29,8 @@ viewModelList.push(function () {
 	var p1, p2, hex_attack, winner, loser = null;
 	vm.continueAction = function () {
 		// CONTINUE
-		hexConflict = GAME.evaluateAttack();		
-		if (hexConflict.war) {
+		GAME.hexConflict = GAME.evaluateAttack();		
+		if (GAME.hexConflict.war) {
 			goToView('view_war');
 		} else {
 			if(!currentPlayer.ai){
@@ -46,7 +46,7 @@ viewModelList.push(function () {
 		vm.current(newValue === vm.viewName);
 		if (GAME && newValue === vm.viewName) {
 			//vm.selectedPlayer(null);
-			hex_attack = GAME.evaluateAttack().war;
+			hex_attack = GAME.hexConflict.war;
 			if (hex_attack) {
 				p1 = GAME.getPlayerByFaction(hex_attack.attack.faction);
 				p2 = GAME.getPlayerByFaction(hex_attack.faction);

@@ -5,7 +5,8 @@
 	}
 	
 	GAME = createGame([1,0,2]);
-	force('view_cross_river');
+force('view_start_turn');
+//force('view_map');
 
 
 })();

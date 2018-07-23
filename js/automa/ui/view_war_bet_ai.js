@@ -63,7 +63,7 @@ viewModelList.push(function () {
 		if (GAME && newValue === vm.viewName) {
 			vm.selectedPlayer(null);
 			vm.step(1);
-			hex_attack = GAME.evaluateAttack().war;
+			hex_attack = GAME.hexConflict.war;
 			if (hex_attack) {
 				p1 = GAME.getPlayerByFaction(hex_attack.attack.faction);
 				p2 = GAME.getPlayerByFaction(hex_attack.faction);

@@ -22,7 +22,9 @@ factionToCreate.forEach(function(facInd, i){
 		players.push(player);
 
 		// Choose a Human player to start
+		//
 		if(!player.ai){
+		//if (player.ai) {
 			currentPlayerIndex = players.length - 1;
 		} 
 	}

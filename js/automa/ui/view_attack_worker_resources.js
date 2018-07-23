@@ -1,8 +1,8 @@
-/* VIEW: ATTACK WORKERS *****************************/
+/* VIEW: ATTACK WORKERS RESOURCES *****************************/
 viewModelList.push(function () {
 	var vm = {
 		/*-----------------------*/
-		viewName: 'view_attack_worker',
+		viewName: 'view_attack_worker_resources',
 		/*-----------------------*/
 		current: ko.observable(false),
 
@@ -25,10 +25,30 @@ viewModelList.push(function () {
 	};
 
 	vm.continueAction = function () {
+
+
+
+		GAME.hexConflict.workers.shift();
 		log(GAME.hexConflict);
 		// GAME.advancePlayer();
-		goToView('view_attack_worker_resources');
-		
+		// goToView('view_start_turn');
+		if (GAME.hexConflict.workers.length > 0) {
+			// Attack workers
+			goToView('view_attack_worker');
+		} else {
+			if (GAME.hexConflict.war) {
+				// War
+				goToView('view_war');
+			} else {
+				if (!currentPlayer.ai) {
+					//continue to human start
+					goToView('view_human_start');
+				} else {
+					// continue to evaluate AI resources
+				}
+			}
+		}
+
 	};
 
 	currentView.subscribe(function (newValue) {
@@ -39,25 +59,13 @@ viewModelList.push(function () {
 			if (GAME.hexConflict.workers.length > 0) {
 				var hex_attack = GAME.hexConflict.workers[0];
 
+
 				p1 = GAME.getPlayerByFaction(hex_attack.attack.faction);
 				p2 = GAME.getPlayerByFaction(hex_attack.faction);
 				baseIndex = GAME.getBaseMapIndex(hex_attack.faction);
 
-				num_of_Worker = hex_attack.people.worker;
+				num_of_Worker += hex_attack.people.worker;
 
-				// send workers to base
-				GAME.MAP[baseIndex].people.worker += hex_attack.people.worker;
-
-				// quit of hex_attack				
-				GAME.MAP[hex_attack.num].people.worker = 0;
-
-				// Renew faction, mech and/or character
-				GAME.MAP[hex_attack.num].faction = hex_attack.attack.faction;
-				GAME.MAP[hex_attack.num].people.mech = hex_attack.attack.mech || 0;
-				GAME.MAP[hex_attack.num].people.character = hex_attack.attack.character || 0;
-
-				// Reset attack
-				GAME.MAP[hex_attack.num].attack = null;
 
 				vm.title_1(_i(capitalize(p1.factionName)));
 				vm.icon_1('player-icon-unit ' + p1.factionName);
@@ -72,17 +80,14 @@ viewModelList.push(function () {
 					i_textAttack = _i(textAttack);
 				vm.txt_attack(i_textAttack.replace('%', num_of_Worker));
 
-				var i_textTerritories = '';
-
 				var textResult = _i('Each of $faction-2’s workers on that territory immediately retreats to their faction’s home base, leaving behind any resource tokens. $faction-1 loses % popularity for the workers he forced to retreat (they’re not happy with you for forcing them off their land).'),
 					i_textResult = textResult.replace('$faction-1', _i(capitalize(p1.factionName))).replace('$faction-2', _i(capitalize(p2.factionName))).replace('%', num_of_Worker);
 				vm.txt_result(i_textResult);
 
-			//	GAME.hexConflict.workers = [];
 			}
 		}
 	});
 	ko.applyBindings(vm, document.getElementById(vm.viewName));
 	return vm;
 });
-/* end VIEW: ATTACK WORKERS *****************************/
+/* end VIEW: ATTACK WORKERS RESOURCES *****************************/

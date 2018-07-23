@@ -18,6 +18,7 @@ var hexagonMap = function (data) {
 
 	var vm = {
 		num: data.num,
+		distance: data.distance,
 		withEnemies: ko.observable(false),
 		attack: null,
 
@@ -283,12 +284,13 @@ viewModelList.push(function () {
 			mapCursorMove = false;
 
 			// CONTINUE
-			hexConflict = GAME.evaluateAttack();
-			if (hexConflict.workers.length > 0) {
+			GAME.hexConflict = GAME.evaluateAttack();
+			log('GAME.hexConflict',GAME.hexConflict);
+			if (GAME.hexConflict.workers.length > 0) {
 				// Attack workers
 				goToView('view_attack_worker');
 			} else {
-				if (hexConflict.war) {
+				if (GAME.hexConflict.war) {
 					goToView('view_war');
 				} else {
 					if(!currentPlayer.ai){
