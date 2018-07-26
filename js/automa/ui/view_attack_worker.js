@@ -24,17 +24,49 @@ viewModelList.push(function () {
 		txt_continue: _i('Continue')
 	};
 
+	var p1, p2;
+
 	vm.continueAction = function () {
-		log(GAME.hexConflict);
-		// GAME.advancePlayer();
-		goToView('view_attack_worker_resources');
 		
+		// GAME.advancePlayer();
+		if (p1.ai && p2.ai) {
+			GAME.hexConflict.workers.shift();
+			log(GAME.hexConflict);
+			if (GAME.hexConflict.workers.length > 0) {
+				// Attack workers
+				goToView('view_none');
+				setTimeout(function(){
+					goToView('view_attack_worker');
+				},200);
+			} else {
+				if (GAME.hexConflict.war) {
+					// War
+					goToView('view_war');
+				} else {
+					var hexEncounter = GAME.evaluateEncounter();
+					if(hexEncounter){
+						// Encounter
+						goToView('view_encounter');
+					}else{
+						if (!currentPlayer.ai) {
+							//continue to human start
+							goToView('view_human_start');
+						} else {
+							// continue to evaluate AI resources
+							log('Evaluate');
+						}
+					}
+				}
+			}
+		} else {
+			goToView('view_attack_worker_resources');
+		}
 	};
 
 	currentView.subscribe(function (newValue) {
 		vm.current(newValue === vm.viewName);
 		if (GAME && newValue === vm.viewName) {
-			var baseIndex, p1, p2, num_of_Worker = 0;
+			var baseIndex, num_of_Worker = 0;
 
 			if (GAME.hexConflict.workers.length > 0) {
 				var hex_attack = GAME.hexConflict.workers[0];
@@ -78,7 +110,7 @@ viewModelList.push(function () {
 					i_textResult = textResult.replace('$faction-1', _i(capitalize(p1.factionName))).replace('$faction-2', _i(capitalize(p2.factionName))).replace('%', num_of_Worker);
 				vm.txt_result(i_textResult);
 
-			//	GAME.hexConflict.workers = [];
+				//	GAME.hexConflict.workers = [];
 			}
 		}
 	});

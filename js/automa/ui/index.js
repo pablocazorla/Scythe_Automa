@@ -9,6 +9,8 @@
 //@prepros-append view_map.js
 //@prepros-append view_attack_worker.js
 //@prepros-append view_attack_worker_resources.js
+//@prepros-append view_attack_war_resources.js
+//@prepros-append view_encounter.js
 //@prepros-append view_war.js
 //@prepros-append view_war_bet_humans.js
 //@prepros-append view_war_bet_ai.js

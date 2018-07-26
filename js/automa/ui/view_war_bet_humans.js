@@ -37,7 +37,7 @@ viewModelList.push(function () {
 		var f_win = vm.selectedPlayer();
 		if (f_win) {
 			var fact = f_win === 'p1' ? p1.factionName : p2.factionName;
-			GAME.setWinnerHex(hex_attack.num, fact);
+			hex_attack.winner = fact;
 			goToView('view_war_results');
 		} else {
 			showAlert(_i('Please, select the winning faction of the combat.'));

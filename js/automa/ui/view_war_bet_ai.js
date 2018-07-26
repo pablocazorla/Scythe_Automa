@@ -53,7 +53,8 @@ viewModelList.push(function () {
 		}else{
 			var f_win = vm.selectedPlayer();
 			var fact = f_win === 'p1' ? p1.factionName : p2.factionName;
-			GAME.setWinnerHex(hex_attack.num, fact);
+			
+			hex_attack.winner = fact;
 			goToView('view_war_results');
 		}
 	};

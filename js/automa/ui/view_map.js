@@ -21,6 +21,7 @@ var hexagonMap = function (data) {
 		distance: data.distance,
 		withEnemies: ko.observable(false),
 		attack: null,
+		encounter: data.encounter,
 
 		// Faction
 		faction: ko.observable(data.faction),
@@ -285,7 +286,7 @@ viewModelList.push(function () {
 
 			// CONTINUE
 			GAME.hexConflict = GAME.evaluateAttack();
-			log('GAME.hexConflict',GAME.hexConflict);
+			
 			if (GAME.hexConflict.workers.length > 0) {
 				// Attack workers
 				goToView('view_attack_worker');
@@ -293,12 +294,18 @@ viewModelList.push(function () {
 				if (GAME.hexConflict.war) {
 					goToView('view_war');
 				} else {
-					if(!currentPlayer.ai){
-						//continue to human start
-						goToView('view_human_start');
+					var hexEncounter = GAME.evaluateEncounter();
+					if(hexEncounter){
+						// Encounter
+						goToView('view_encounter');
 					}else{
-						// continue to evaluate AI resources
-					}	
+						if(!currentPlayer.ai){
+							//continue to human start
+							goToView('view_human_start');
+						}else{
+							// continue to evaluate AI resources
+						}
+					}
 				}
 			}
 		};

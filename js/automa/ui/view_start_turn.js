@@ -14,7 +14,8 @@ viewModelList.push(function() {
 		playerIcon: ko.observable(''),
 		ai: ko.observable(false),
 		timeline: ko.observableArray(),
-		ai_position: ko.observable('')
+		ai_position: ko.observable(''),
+		classMarker: ko.observable('')
 	};	
 
 	vm.continueAction = function(){
@@ -33,6 +34,7 @@ viewModelList.push(function() {
 			
 			vm.title(_i(capitalize(currentPlayer.factionName)));
 			vm.icon('images/factions/' + currentPlayer.factionName + '.png');
+			vm.classMarker(currentPlayer.factionName);
 			vm.playerName(_i(currentPlayer.name));
 			vm.playerIcon(currentPlayer.icon);
 			vm.ai(currentPlayer.ai);
@@ -75,7 +77,7 @@ viewModelList.push(function() {
 
 
 
-		//	GAME.evaluateAI(currentPlayer);
+			GAME.evaluateAI(currentPlayer);
 
 
 

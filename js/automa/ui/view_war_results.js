@@ -28,18 +28,26 @@ viewModelList.push(function () {
 
 	var p1, p2, hex_attack, winner, loser = null;
 	vm.continueAction = function () {
+		//debugger;
 		// CONTINUE
-		GAME.hexConflict = GAME.evaluateAttack();		
-		if (GAME.hexConflict.war) {
-			goToView('view_war');
-		} else {
-			if(!currentPlayer.ai){
-				//continue to human start
-				goToView('view_human_start');
-			}else{
-				// continue to evaluate AI resources
-			}	
-		}		
+		// GAME.hexConflict = GAME.evaluateAttack();		
+		// if (GAME.hexConflict.war) {
+		// 	goToView('view_war');
+		// } else {
+		// 	var hexEncounter = GAME.evaluateEncounter();
+		// 	if (hexEncounter) {
+		// 		// Encounter
+		// 		goToView('view_encounter');
+		// 	} else {
+		// 		if(!currentPlayer.ai){
+		// 			//continue to human start
+		// 			goToView('view_human_start');
+		// 		}else{
+		// 			// continue to evaluate AI resources
+		// 		}
+		// 	}
+		// }
+		goToView('view_attack_war_resources');
 	};
 
 	currentView.subscribe(function (newValue) {
@@ -58,10 +66,10 @@ viewModelList.push(function () {
 				vm.icon_2('player-icon-unit ' + p2.factionName);
 				vm.playerName_2(_i(p2.name));
 				vm.playerIcon_2(p2.icon);
-
+				
 				winner = hex_attack.attack.faction === hex_attack.winner ? p1 : p2;
 				loser = hex_attack.attack.faction === hex_attack.winner ? p2 : p1;
-
+				//debugger;
 				var winner_p = hex_attack.attack.faction === hex_attack.winner ? 'p1' : 'p2';				
 				vm.selectedPlayer(winner_p);
 				var textHelp1 = _i('$faction, the losing faction, must retreat all of their units (mechs, characters, and workers) from the combat territory to their home base.');
@@ -101,7 +109,7 @@ viewModelList.push(function () {
 
 				// Reset attack
 				GAME.MAP[hex_attack.num].attack = null;
-				delete GAME.MAP[hex_attack.num].winner;
+				
 			}
 		}
 	});

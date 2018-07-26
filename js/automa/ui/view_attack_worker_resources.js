@@ -21,17 +21,14 @@ viewModelList.push(function () {
 		playerIcon_2: ko.observable(''),
 		txt_attack: ko.observable(''),
 		txt_result: ko.observable(''),
-		txt_continue: _i('Continue')
+		txt_continue: _i('Continue'),
+		resourceList: ko.observableArray(),
+		resourceListVisible: ko.observable(false),
+		allResources: ko.observable(false)
 	};
 
 	vm.continueAction = function () {
-
-
-
 		GAME.hexConflict.workers.shift();
-		log(GAME.hexConflict);
-		// GAME.advancePlayer();
-		// goToView('view_start_turn');
 		if (GAME.hexConflict.workers.length > 0) {
 			// Attack workers
 			goToView('view_attack_worker');
@@ -40,11 +37,17 @@ viewModelList.push(function () {
 				// War
 				goToView('view_war');
 			} else {
-				if (!currentPlayer.ai) {
-					//continue to human start
-					goToView('view_human_start');
+				var hexEncounter = GAME.evaluateEncounter();
+				if (hexEncounter) {
+					// Encounter
+					goToView('view_encounter');
 				} else {
-					// continue to evaluate AI resources
+					if (!currentPlayer.ai) {
+						//continue to human start
+						goToView('view_human_start');
+					} else {
+						// continue to evaluate AI resources
+					}
 				}
 			}
 		}
@@ -54,18 +57,14 @@ viewModelList.push(function () {
 	currentView.subscribe(function (newValue) {
 		vm.current(newValue === vm.viewName);
 		if (GAME && newValue === vm.viewName) {
-			var baseIndex, p1, p2, num_of_Worker = 0;
+			var p1, p2, num_of_Worker = 0;
 
 			if (GAME.hexConflict.workers.length > 0) {
 				var hex_attack = GAME.hexConflict.workers[0];
 
-
 				p1 = GAME.getPlayerByFaction(hex_attack.attack.faction);
 				p2 = GAME.getPlayerByFaction(hex_attack.faction);
-				baseIndex = GAME.getBaseMapIndex(hex_attack.faction);
-
-				num_of_Worker += hex_attack.people.worker;
-
+				num_of_Worker = hex_attack.people.worker;
 
 				vm.title_1(_i(capitalize(p1.factionName)));
 				vm.icon_1('player-icon-unit ' + p1.factionName);
@@ -80,9 +79,62 @@ viewModelList.push(function () {
 					i_textAttack = _i(textAttack);
 				vm.txt_attack(i_textAttack.replace('%', num_of_Worker));
 
-				var textResult = _i('Each of $faction-2’s workers on that territory immediately retreats to their faction’s home base, leaving behind any resource tokens. $faction-1 loses % popularity for the workers he forced to retreat (they’re not happy with you for forcing them off their land).'),
-					i_textResult = textResult.replace('$faction-1', _i(capitalize(p1.factionName))).replace('$faction-2', _i(capitalize(p2.factionName))).replace('%', num_of_Worker);
-				vm.txt_result(i_textResult);
+				if (!currentPlayer.ai) {
+					// attack human
+
+					if (p2.ai) {
+						// vs. ai
+						vm.allResources(false);
+						var typeRes = hex_attack.type;
+
+						var required = typeRes === 'iron' || typeRes === 'farm' || typeRes === 'oil' || typeRes === 'wood';
+
+						if (GAME.aiResources > 0 && required) {
+
+							var txt_result = _i('Put %num %type in the territory.');
+
+							txt_result = txt_result.replace('%num', GAME.aiResources);
+							txt_result = txt_result.replace('%type', typeRes);
+
+							vm.txt_result(txt_result);
+
+							var list = [],
+								counter = GAME.aiResources;
+
+							while (counter > 0) {
+								list.push({
+									type: typeRes
+								});
+								counter--;
+							}
+							vm.resourceListVisible(true);
+							vm.resourceList(list);
+
+						} else {
+							vm.resourceListVisible(false);
+							vm.txt_result(_i('There are not resources in the territory.'));
+						}
+
+					} else {
+						// vs. human
+						vm.resourceListVisible(false);
+						vm.allResources(true);
+						var txt_result = _i('%faction obtain all resources in the territory.');
+						txt_result = txt_result.replace('%faction', _i(capitalize(p1.factionName)));
+						vm.txt_result(txt_result);
+					}
+
+
+
+
+				} else {
+					// attack ai
+					vm.allResources(true);
+					vm.txt_result(_i('Remove all resources of the territory.'));
+				}
+
+
+
 
 			}
 		}

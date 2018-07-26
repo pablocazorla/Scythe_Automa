@@ -50,14 +50,15 @@ G.MAP = {
 	// 	'type': 'farm',
 	// 	'people': {
 	// 		'worker': 2,
-	// 		'mech': 2,
+	// 		'mech': 0,
 	// 		'character': 0
 	// 	},
-	// 	'faction': 'crimean',
+	// 	'faction': 'rusviet',
 	// 	'attack': {
-	// 		'faction': 'rusviet',
+	// 		'faction': 'crimean',
 	// 		'mech': 2
-	// 	},'distance': 3
+	// 	},
+	// 	'distance': 3
 	// },
 	'24': {
 		'num': 24,
@@ -71,6 +72,21 @@ G.MAP = {
 		'faction': null,
 		'attack': null, 'distance': 3
 	},
+	// '24': {
+	// 	'num': 24,
+	// 	'type': 'aldea',
+	// 	'encounter': true,
+	// 	'people': {
+	// 		'worker': 0,
+	// 		'mech': 1,
+	// 		'character': 0
+	// 	},
+	// 	'faction': 'rusviet',
+	// 	'attack': {
+	// 		'faction': 'crimean',
+	// 		'mech': 2
+	// 	},'distance': 3
+	// },
 	'25': {
 		'num': 25,
 		'type': 'wood',
@@ -82,6 +98,21 @@ G.MAP = {
 		'faction': null,
 		'attack': null, 'distance': 3
 	},
+	// '25': {
+	// 	'encounter':true,
+	// 	'num': 25,
+	// 	'type': 'wood',
+	// 	'people': {
+	// 		'worker': 0,
+	// 		'mech': 1,
+	// 		'character': 0
+	// 	},
+	// 	'faction': 'rusviet',
+	// 	'attack': {
+	// 		'faction': 'crimean',
+	// 		'character': 1
+	// 	},'distance': 3
+	// },
 	'26': {
 		'num': 26,
 		'type': 'oil',
@@ -93,6 +124,20 @@ G.MAP = {
 		'faction': null,
 		'attack': null, 'distance': 3
 	},
+	// '26': {
+	// 	'num': 26,
+	// 	'type': 'oil',
+	// 	'people': {
+	// 		'worker': 0,
+	// 		'mech': 2,
+	// 		'character': 0
+	// 	},
+	// 	'faction': 'rusviet',
+	// 	'attack': {
+	// 		'faction': 'crimean',
+	// 		'mech': 2
+	// 	},'distance': 3
+	// },
 	'27': {
 		'num': 27,
 		'type': 'aldea',
@@ -104,6 +149,20 @@ G.MAP = {
 		'faction': null,
 		'attack': null, 'distance': 4
 	},
+	// '27': {
+	// 	'num': 27,
+	// 	'type': 'aldea',
+	// 	'people': {
+	// 		'worker': 3,
+	// 		'mech': 0,
+	// 		'character': 0
+	// 	},
+	// 	'faction': 'rusviet',
+	// 	'attack': {
+	// 		'faction': 'crimean',
+	// 		'mech': 2
+	// 	},'distance': 4
+	// },
 	'31': {
 		'num': 31,
 		'type': 'lake',
@@ -668,6 +727,20 @@ G.hexConflict = {
 	war: null
 };
 
+G.evaluateEncounter = function () {
+	var hex = null;
+
+	for (var a in G.MAP) {
+		var h = G.MAP[a];
+		if (h.encounter) {
+			if (h.people.character > 0) {
+				hex = h;
+			} 
+		}
+	}
+	return hex;
+};
+
 G.evaluateAttack = function () {
 	var hexs = {
 		workers: [],
@@ -685,7 +758,4 @@ G.evaluateAttack = function () {
 		}
 	}
 	return hexs;
-};
-G.setWinnerHex = function (num, faction) {
-	G.MAP[num].winner = faction;
 };
