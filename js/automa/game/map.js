@@ -454,22 +454,22 @@ G.MAP = {
 		'num': 64,
 		'type': 'oil',
 		'people': {
-			'worker': 1,
+			'worker': 0,
 			'mech': 0,
 			'character': 0
 		},
-		'faction': 'crimean',
+		'faction': null,
 		'attack': null, 'distance': 1
 	},
 	'65': {
 		'num': 65,
 		'type': 'lake',
 		'people': {
-			'worker': 0,
+			'worker': 2,
 			'mech': 0,
 			'character': 0
 		},
-		'faction': null,
+		'faction': 'crimean',
 		'attack': null, 'distance': 1
 	},
 	'66': {

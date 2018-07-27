@@ -17,7 +17,8 @@ factionToCreate.forEach(function(facInd, i){
 			'worker': 6,
 			'mech': 4,
 			'stars': 6,
-			'starsByWar': faction.name === 'saxony' ? 6 : 2
+			'starsByWar': 2,
+			'factoryCard':false
 		};
 
 		players.push(player);

@@ -4,7 +4,7 @@
 		goToView(vn);
 	}
 	
-	GAME = createGame([1,0,2]);
+	GAME = createGame([2,0,1]);
 //
 force('view_start_turn');
 //force('view_map');
