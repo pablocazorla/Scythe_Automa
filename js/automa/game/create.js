@@ -1,5 +1,5 @@
 
-G.aiResources = 2;
+G.aiResources = 0;
 
 // Create Players
 var players = [],
@@ -13,11 +13,13 @@ factionToCreate.forEach(function(facInd, i){
 		player.factionName = faction.name;
 		player.power = faction.power;
 		player.cards = faction.cards;
+		player.money = 0;
 		player.board = {
 			'worker': 6,
 			'mech': 4,
 			'stars': 6,
 			'starsByWar': 2,
+			'starsByPower': 1,
 			'factoryCard':false
 		};
 

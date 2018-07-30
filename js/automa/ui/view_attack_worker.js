@@ -31,7 +31,7 @@ viewModelList.push(function () {
 		// GAME.advancePlayer();
 		if (p1.ai && p2.ai) {
 			GAME.hexConflict.workers.shift();
-			log(GAME.hexConflict);
+			//log(GAME.hexConflict);
 			if (GAME.hexConflict.workers.length > 0) {
 				// Attack workers
 				goToView('view_none');

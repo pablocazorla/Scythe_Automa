@@ -155,21 +155,27 @@ var AUTOMA = (function () {
 	};
 	var selectVecHexagons = function () {
 		vecHexagons = [];
-		var vecHexNumbers = {};			
+		var vecHexNumbers = {};
 
 		hexagons.forEach(function (hex) {
 			var vecHex = getVecListForHex(hex.num);
 			vecHexNumbers[hex.num] = true;
 			vecHex.forEach(function (h) {
-				vecHexNumbers[h] = true;
+				if (player.crossRiver) {
+					vecHexNumbers[h] = true;
+				} else {
+					if (G.notCrossRiverHexNum[player.factionName].indexOf('' + h) >= 0) {
+						vecHexNumbers[h] = true;
+					}
+				}
 			});
 		});
 
-		for(var n in vecHexNumbers){
+		for (var n in vecHexNumbers) {
 			vecHexagons.push(G.MAP[n]);
-		}		
+		}
 	};
-	var filterVecHexagonsByMoveType = function (){
+	var filterVecHexagonsByMoveType = function () {
 
 		vecHexagonFiltered = [];
 		hexDestiny = null;
@@ -178,7 +184,7 @@ var AUTOMA = (function () {
 		filter += moveAction.attack ? '_attack' : '';
 
 
-		var mechOrCharacter_No_attack = function(){
+		var mechOrCharacter_No_attack = function () {
 
 			var yesToBaseHex = [],
 				notToBaseHex = [];
@@ -186,41 +192,41 @@ var AUTOMA = (function () {
 			// Select enemies
 			selectHexagonsEnemies();
 
-			vecHexagons.forEach(function(vecHex){
+			vecHexagons.forEach(function (vecHex) {
 				var el = cloneObject(vecHex);
 				if (el.num === hexUnit.num) {
-					if(el.people.mech > 0){
+					if (el.people.mech > 0) {
 						el.people.mech--;
 					}
-					if(el.people.character > 0){
+					if (el.people.character > 0) {
 						el.people.character--;
 					}
 				}
 				// if not enemies:
 				if (el.faction === null || el.faction === player.factionName) {
-					if(el.people.mech === 0 && el.people.character === 0){
+					if (el.people.mech === 0 && el.people.character === 0) {
 						el.distanceToEnemie = 9999;
 						el.toBase = false;
 
 						// Find the closer enemie
-						hexagonsEnemies.forEach(function(hexEnem){
+						hexagonsEnemies.forEach(function (hexEnem) {
 							// if enemies
-							if(hexEnem.people.mech > 0 || hexEnem.people.character > 0 ){
-								var dist = getDistance(hexEnem.num,el.num);
+							if (hexEnem.people.mech > 0 || hexEnem.people.character > 0) {
+								var dist = getDistance(hexEnem.num, el.num);
 								// is closer
-								if(dist <= el.distanceToEnemie){
-									if(dist === el.distanceToEnemie && hexEnem.type !== 'head'){
+								if (dist <= el.distanceToEnemie) {
+									if (dist === el.distanceToEnemie && hexEnem.type !== 'head') {
 										el.toBase = false;
-									}else{										
+									} else {
 										el.toBase = hexEnem.type === 'head';
 									}
 									el.distanceToEnemie = dist;
 								}
 							}
 						});
-						if(el.toBase){
+						if (el.toBase) {
 							yesToBaseHex.push(el);
-						}else{
+						} else {
 							notToBaseHex.push(el);
 						}
 					}
@@ -229,31 +235,31 @@ var AUTOMA = (function () {
 			vecHexagonFiltered = notToBaseHex.length > 0 ? notToBaseHex : yesToBaseHex;
 
 			// Ordenated to enemie distance (the closer)
-			vecHexagonFiltered.sort(function(a, b){
+			vecHexagonFiltered.sort(function (a, b) {
 				var wA = a.distanceToEnemie,
-						wB = b.distanceToEnemie;
-						if (wA < wB) {
-							return -1;
-						} else if (wA > wB) {
-							return 1;
-						} else {
-							if (a.distance < b.distance) {
-								return -1;
-							} else if (a.distance > b.distance) {
-								return 1;
-							} else {
-								return a.num < b.num ? -1 : 1;
-							}
-						}
+					wB = b.distanceToEnemie;
+				if (wA < wB) {
+					return -1;
+				} else if (wA > wB) {
+					return 1;
+				} else {
+					if (a.distance < b.distance) {
+						return -1;
+					} else if (a.distance > b.distance) {
+						return 1;
+					} else {
+						return a.num < b.num ? -1 : 1;
+					}
+				}
 			});
-			if(vecHexagonFiltered.length > 0){
+			if (vecHexagonFiltered.length > 0) {
 				hexDestiny = G.MAP[vecHexagonFiltered[0].num];
 			}
 		};
 
-		switch(filter){
+		switch (filter) {
 			case 'worker':
-				vecHexagons.forEach(function(vecHex){
+				vecHexagons.forEach(function (vecHex) {
 					var el = cloneObject(vecHex);
 
 					if (el.num === hexUnit.num) {
@@ -262,7 +268,7 @@ var AUTOMA = (function () {
 
 					// if not enemies:
 					if (el.faction === null || el.faction === player.factionName) {
-					
+
 						el.nearEnemyAttack = 0;
 
 						el.weight = el.people.worker + el.people.mech + el.people.character;
@@ -289,7 +295,7 @@ var AUTOMA = (function () {
 							if (el.people.worker === 0) {
 								vecHexagonFiltered.push(el);
 							}
-						}						
+						}
 					}
 				});
 
@@ -311,7 +317,7 @@ var AUTOMA = (function () {
 						}
 					}
 				});
-				if(vecHexagonFiltered.length > 0){
+				if (vecHexagonFiltered.length > 0) {
 					hexDestiny = G.MAP[vecHexagonFiltered[0].num];
 				}
 				break;
@@ -323,55 +329,55 @@ var AUTOMA = (function () {
 				break;
 			case 'encounter_or_factory':
 				var factoryHex = false;
-				vecHexagons.forEach(function(vecHex){
+				vecHexagons.forEach(function (vecHex) {
 					var el = cloneObject(vecHex);
 
 					// if not enemies:
 					if (el.faction === null || el.faction === player.factionName) {
-						if(el.people.mech === 0 && el.people.character === 0){
+						if (el.people.mech === 0 && el.people.character === 0) {
 							// If factory and player hasn't factory card
-							if(el.type === 'factory' && !player.board.factoryCard){
+							if (el.type === 'factory' && !player.board.factoryCard) {
 								factoryHex = G.MAP[el.num];
-							}else{
+							} else {
 								// if encounter
-								if(el.encounter){
+								if (el.encounter) {
 									vecHexagonFiltered.push(el);
 								}
 							}
 						}
 					}
 				});
-				if(factoryHex){
+				if (factoryHex) {
 					hexDestiny = factoryHex;
-				}else{
+				} else {
 					// Ordenated to factory distance (the closer)
-					vecHexagonFiltered.sort(function(a, b){				
+					vecHexagonFiltered.sort(function (a, b) {
 						if (a.distance < b.distance) {
 							return -1;
 						} else if (a.distance > b.distance) {
 							return 1;
 						} else {
 							return a.num < b.num ? -1 : 1;
-						}								
+						}
 					});
-					if(vecHexagonFiltered.length > 0){
+					if (vecHexagonFiltered.length > 0) {
 						hexDestiny = G.MAP[vecHexagonFiltered[0].num];
 					}
 				}
 				break;
 			case 'character_or_mech_attack':
-				vecHexagons.forEach(function(vecHex){
+				vecHexagons.forEach(function (vecHex) {
 					var el = cloneObject(vecHex);
 
 					// if yes enemies:
 					if (el.faction !== null && el.faction !== player.factionName) {
 						el.enemies = el.people.mech + el.people.character;
-						if(el.enemies > 0){
+						if (el.enemies > 0) {
 							vecHexagonFiltered.push(el);
 						}
 					}
 				});
-				
+
 				// Ordenated by enemies
 				vecHexagonFiltered.sort(function (a, b) {
 					var wA = a.enemies || 0,
@@ -390,19 +396,21 @@ var AUTOMA = (function () {
 						}
 					}
 				});
-				if(vecHexagonFiltered.length > 0){
+				if (vecHexagonFiltered.length > 0) {
 					hexDestiny = G.MAP[vecHexagonFiltered[0].num];
 				}
 				break;
 			case 'worker_attack_attack':
-				vecHexagons.forEach(function(vecHex){
+			
+				vecHexagons.forEach(function (vecHex) {
 					var el = cloneObject(vecHex);
+
 					// if yes enemies:
 					if (el.faction !== null && el.faction !== player.factionName) {
 						// if not enemies forces:
-						if(el.people.mech === 0 && el.people.character === 0 && el.type !== 'head'){
+						if (el.people.mech === 0 && el.people.character === 0 && el.type !== 'head') {
 							vecHexagonFiltered.push(el);
-							
+
 						}
 					}
 				});
@@ -424,7 +432,7 @@ var AUTOMA = (function () {
 						}
 					}
 				});
-				if(vecHexagonFiltered.length > 0){
+				if (vecHexagonFiltered.length > 0) {
 					hexDestiny = G.MAP[vecHexagonFiltered[0].num];
 				}
 				break;
@@ -432,11 +440,11 @@ var AUTOMA = (function () {
 				//
 		}
 	};
-	var setTypeToMove = function(){
+	var setTypeToMove = function () {
 		var unitToMove = null;
-		unitTypes[moveAction.type].forEach(function(unit){
-			if(!unitToMove){
-				if(hexUnit.people[unit] > 0){
+		unitTypes[moveAction.type].forEach(function (unit) {
+			if (!unitToMove) {
+				if (hexUnit.people[unit] > 0) {
 					unitToMove = unit;
 				}
 			}
@@ -452,7 +460,7 @@ var AUTOMA = (function () {
 
 			moveAction = ma;
 			player = pl;
-			numBase = G.getBaseMapIndex(pl.factionName);			
+			numBase = G.getBaseMapIndex(pl.factionName);
 
 			selectHexagons();
 			selectHexUnit();
@@ -460,16 +468,51 @@ var AUTOMA = (function () {
 				selectVecHexagons();
 				filterVecHexagonsByMoveType();
 			}
-			if(hexUnit && hexDestiny){
-				if(hexUnit.num !== hexDestiny.num){
+			if (hexUnit && hexDestiny) {
+				if (hexUnit.num !== hexDestiny.num) {
 					moveChoice = {
-						origin:hexUnit,
-						destiny:hexDestiny,
+						origin: hexUnit,
+						destiny: hexDestiny,
 						type: setTypeToMove()
 					}
 				}
 			}
 			return moveChoice;
+		},
+		gain: function (gains, pl) {
+			var o = {
+				'worker': 0,
+				'mech': 0,
+				'power': 0,
+				'money': 0,
+				'card': 0,
+			};
+
+			gains.forEach(function(ga){
+				var enabledByFaction = (ga.faction && ga.faction === pl.factionName) || !ga.faction;
+				if(enabledByFaction){
+					var num = ga.count ? ga.count : 1;
+					switch(ga.type){
+						case 'worker':
+							num = pl.board.worker >= num ? num : pl.board.worker;
+							o.worker += num;
+							break;
+						case 'mech':
+							num = pl.board.mech >= num ? num : pl.board.mech;
+							o.mech += num;
+							break;
+						case 'power':
+							num = (pl.power + num) > 16 ? (16 - pl.power) : num;
+							o.power += num;
+							break;
+						default:
+							o[ga.type] += num;
+					}
+					
+				}
+			});
+
+			return o;
 		}
 	};
 	return AI;

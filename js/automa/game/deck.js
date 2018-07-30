@@ -1,6 +1,7 @@
 /* DECK ***************/
 var getCard = (function () {
-	var originalDeck = [{
+	var originalDeck = [
+		{
 			'num': 1,
 			'e1': {
 				'move': [{
@@ -16,7 +17,7 @@ var getCard = (function () {
 				}, {
 					'type': 'worker'
 				}],
-				'recruit': ['power']
+				'recruit': 'power'
 			},
 			'e2': {
 				'move': [{
@@ -26,7 +27,7 @@ var getCard = (function () {
 					'type': 'power',
 					'count': 4
 				}],
-				'recruit': ['power']
+				'recruit': 'power'
 			},
 			'advance': true,
 			'combat': {
@@ -49,7 +50,7 @@ var getCard = (function () {
 				}, {
 					'type': 'money'
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -64,9 +65,9 @@ var getCard = (function () {
 				}, {
 					'type': 'card'
 				}, {
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}],
-				'recruit': ['money']
+				'recruit': 'money'
 			},
 			'advance': true,
 			'combat': {
@@ -84,7 +85,7 @@ var getCard = (function () {
 					'type': 'power',
 					'count': 3
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -96,7 +97,7 @@ var getCard = (function () {
 				}, {
 					'type': 'worker'
 				}],
-				'recruit': ['popularity']
+				'recruit': 'popularity'
 			},
 			'advance': true,
 			'combat': {
@@ -117,7 +118,7 @@ var getCard = (function () {
 				}, {
 					'type': 'card'
 				}],
-				'recruit': ['card']
+				'recruit': 'card'
 			},
 			'e2': {
 				'move': [{
@@ -130,7 +131,7 @@ var getCard = (function () {
 					'type': 'money',
 					'count': 2
 				}],
-				'recruit': ['power']
+				'recruit': 'power'
 			},
 			'advance': false,
 			'combat': {
@@ -148,14 +149,14 @@ var getCard = (function () {
 					'type': 'worker'
 				}],
 				'gain': [{
-					'type': 'character_or_mech',
+					'type': 'mech',
 					'faction': 'togawa'
 				}, {
 					'type': 'worker'
 				}, {
 					'type': 'money'
 				}],
-				'recruit': ['money']
+				'recruit': 'money'
 			},
 			'e2': {
 				'move': [{
@@ -167,7 +168,7 @@ var getCard = (function () {
 				}, {
 					'type': 'worker'
 				}],
-				'recruit': ['card']
+				'recruit': 'card'
 			},
 			'advance': true,
 			'combat': {
@@ -185,7 +186,7 @@ var getCard = (function () {
 					'type': 'power',
 					'count': 2
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -198,9 +199,9 @@ var getCard = (function () {
 					'type': 'power',
 					'count': 2
 				}, {
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}],
-				'recruit': ['power']
+				'recruit': 'power'
 			},
 			'advance': true,
 			'combat': {
@@ -224,7 +225,7 @@ var getCard = (function () {
 				}, {
 					'type': 'money'
 				}],
-				'recruit': ['popularity']
+				'recruit': 'popularity'
 			},
 			'e2': {
 				'move': [{
@@ -235,14 +236,14 @@ var getCard = (function () {
 					'type': 'mech'
 				}],
 				'gain': [{
-					'type': 'character_or_mech',
+					'type': 'mech',
 					'faction': 'rusviet'
 				}, {
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}, {
 					'type': 'card'
 				}],
-				'recruit': ['money']
+				'recruit': 'money'
 			},
 			'advance': true,
 			'combat': {
@@ -263,12 +264,12 @@ var getCard = (function () {
 					'type': 'worker'
 				}],
 				'gain': [{
-					'type': 'character_or_mech',
+					'type': 'mech',
 					'faction': 'togawa'
 				}, {
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -283,9 +284,9 @@ var getCard = (function () {
 				}, {
 					'type': 'money'
 				}, {
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}],
-				'recruit': ['money']
+				'recruit': 'money'
 			},
 			'advance': true,
 			'combat': {
@@ -307,9 +308,9 @@ var getCard = (function () {
 				'gain': [{
 					'type': 'worker'
 				}, {
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}],
-				'recruit': ['popularity']
+				'recruit': 'popularity'
 			},
 			'e2': {
 				'move': [{
@@ -324,7 +325,7 @@ var getCard = (function () {
 				}, {
 					'type': 'worker'
 				}],
-				'recruit': ['popularity']
+				'recruit': 'popularity'
 			},
 			'advance': true,
 			'combat': {
@@ -341,12 +342,12 @@ var getCard = (function () {
 					'type': 'worker'
 				}],
 				'gain': [{
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}, {
 					'type': 'power',
 					'count': 2
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -356,9 +357,9 @@ var getCard = (function () {
 					'type': 'money',
 					'count': 2
 				}, {
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'advance': true,
 			'combat': {
@@ -384,7 +385,7 @@ var getCard = (function () {
 				}, {
 					'type': 'money'
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -401,7 +402,7 @@ var getCard = (function () {
 				}, {
 					'type': 'worker'
 				}],
-				'recruit': ['card']
+				'recruit': 'card'
 			},
 			'advance': true,
 			'combat': {
@@ -422,7 +423,7 @@ var getCard = (function () {
 					'type': 'power',
 					'count': 4
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -436,9 +437,9 @@ var getCard = (function () {
 				}, {
 					'type': 'money'
 				}, {
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}],
-				'recruit': ['power']
+				'recruit': 'power'
 			},
 			'advance': true,
 			'combat': {
@@ -461,7 +462,7 @@ var getCard = (function () {
 				'gain': [{
 					'type': 'money'
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -479,7 +480,7 @@ var getCard = (function () {
 					'type': 'money',
 					'count': 2
 				}],
-				'recruit': ['money']
+				'recruit': 'money'
 			},
 			'advance': true,
 			'combat': {
@@ -500,7 +501,7 @@ var getCard = (function () {
 				}, {
 					'type': 'card'
 				}],
-				'recruit': ['card']
+				'recruit': 'card'
 			},
 			'e2': {
 				'move': [{
@@ -516,7 +517,7 @@ var getCard = (function () {
 					'type': 'power',
 					'count': 3
 				}],
-				'recruit': ['popularity']
+				'recruit': 'popularity'
 			},
 			'advance': true,
 			'combat': {
@@ -538,7 +539,7 @@ var getCard = (function () {
 				}, {
 					'type': 'money'
 				}],
-				'recruit': ['money']
+				'recruit': 'money'
 			},
 			'e2': {
 				'move': [{
@@ -559,7 +560,7 @@ var getCard = (function () {
 					'type': 'money',
 					'faction': 'crimean'
 				}],
-				'recruit': ['card']
+				'recruit': 'card'
 			},
 			'advance': false,
 			'combat': {
@@ -576,9 +577,9 @@ var getCard = (function () {
 					'type': 'character'
 				}],
 				'gain': [{
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -594,11 +595,11 @@ var getCard = (function () {
 					'type': 'power',
 					'faction': 'saxony'
 				}, {
-					'type': 'character_or_mech'
+					'type': 'mech'
 				}, {
 					'type': 'money'
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'advance': true,
 			'combat': {
@@ -623,7 +624,7 @@ var getCard = (function () {
 					'type': 'money',
 					'count': 2
 				}],
-				'recruit': ['power']
+				'recruit': 'power'
 			},
 			'e2': {
 				'move': [{
@@ -640,7 +641,7 @@ var getCard = (function () {
 				}, {
 					'type': 'worker'
 				}],
-				'recruit': ['popularity']
+				'recruit': 'popularity'
 			},
 			'advance': false,
 			'combat': {
@@ -664,7 +665,7 @@ var getCard = (function () {
 				}, {
 					'type': 'money'
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -673,7 +674,7 @@ var getCard = (function () {
 					'type': 'character'
 				}],
 				'gain': [{
-					'type': 'character_or_mech',
+					'type': 'mech',
 					'faction': 'albion'
 				}, {
 					'type': 'worker'
@@ -681,7 +682,7 @@ var getCard = (function () {
 					'type': 'money',
 					'count': 2
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'advance': true,
 			'combat': {
@@ -701,7 +702,7 @@ var getCard = (function () {
 				'gain': [{
 					'type': 'worker'
 				}],
-				'recruit': []
+				'recruit': null
 			},
 			'e2': {
 				'move': [{
@@ -719,7 +720,7 @@ var getCard = (function () {
 				}, {
 					'type': 'money'
 				}],
-				'recruit': ['card']
+				'recruit': 'card'
 			},
 			'advance': true,
 			'combat': {
@@ -764,8 +765,13 @@ var getCard = (function () {
 
 		//console.log('tt',tt);
 
+		var merooo = 5;
 
+
+		//return originalDeck[merooo - 1];
+		
 		return {
+			//'notAutometta':true,
 			'num': 1,
 			'e1': {
 				'move': [
@@ -783,34 +789,21 @@ var getCard = (function () {
 					// 	'type': 'encounter_or_factory'
 					// },
 					// // Attack
-					{
-						'attack': 1,
-						'type': 'character_or_mech'
-					},
 					// {
-					// 	'attack': 'worker',
-					// 	'type': 'worker_attack'
-					// }
-
-
-
-
-
-
-
-
-
-
-
-
-
+					// 	'attack': 1,
+					// 	'type': 'character_or_mech'
+					// },
+					{
+						'attack': 'worker',
+						'type': 'worker_attack'
+					}
 				],
 				'gain': [{
 					'type': 'power'
 				}, {
 					'type': 'worker'
 				}],
-				'recruit': ['power']
+				'recruit': 'power'
 			},
 			'advance': true,
 			'combat': {

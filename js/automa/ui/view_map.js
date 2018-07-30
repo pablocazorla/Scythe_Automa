@@ -5,11 +5,17 @@ var mapHumanAction = 'move',
 	mapHumanElement = 'worker',
 	mapHumanMoveElement = ko.observable(null),
 	mapHumanRollBackElement = ko.observable(null),
-	mapHumanChanges = ko.observable(null);
+	mapHumanChanges = ko.observable(null),
+	arrow = {
+		x1: 0,
+		y1: 0,
+		x2: 0,
+		y2: 0,
+	};
 /* end Human Data for map */
 
 /* Hexagon Map VM */
-var hexagonMap = function (data) {
+var hexagonMap = function (data, aiType) {
 	var num = '' + data.num,
 		row = parseInt(num.charAt(0), 10),
 		col = parseInt(num.charAt(1), 10),
@@ -35,6 +41,8 @@ var hexagonMap = function (data) {
 		factoryPoints: SVG.factory.points,
 		attackPoints1: SVG.attack.points1,
 		attackPoints2: SVG.attack.points2,
+		origin: aiType === 'origin',
+		destiny: aiType === 'destiny',
 
 		transform: 'translate(' + dx + ',' + dy + ')',
 		className: 'hex' + (data.type === 'head' ? '' : ' hexagon'),
@@ -50,6 +58,18 @@ var hexagonMap = function (data) {
 		mech: ko.observable(data.people.mech),
 		character: ko.observable(data.people.character)
 	};
+
+
+	if (vm.destiny) {
+		arrow.x1 = dx + 60;
+		arrow.y1 = dy + 66;
+	}
+	if (vm.origin) {
+		arrow.x2 = dx + 60;
+		arrow.y2 = dy + 66;
+	}
+
+
 
 	/* HUMAN ACTIONS */
 	var addElement = function (element) {
@@ -166,8 +186,10 @@ viewModelList.push(function () {
 		// draw
 		workerPoints: SVG.worker.points,
 		mechPoints: SVG.mech.points,
-		characterPoints: SVG.character.points,		
+		characterPoints: SVG.character.points,
 		viewBox: '0 0 1080 990',
+		arrowTransform: ko.observable(''),
+		aiSelectedUnit: ko.observable(''),
 
 		// human
 		hexagons: ko.observableArray(),
@@ -181,14 +203,21 @@ viewModelList.push(function () {
 		isAddAction: ko.observable(false),
 		selectedUnit: ko.observable('worker'),
 		disabledCharacter: ko.observable(false),
+		viewHumanOptions: ko.observable(true),
+		visibleArrow: ko.observable(false),
 
 		// text
-		txt_lead_1: _i('Move your pieces by selecting in map'),
-		txt_lead_2: _i('or add new pieces'),
+		txt_lead_1: ko.observable(_i('Move your pieces by selecting in map')),
+		txt_lead_2: ko.observable(_i('or add new pieces')),
 		txt_continue: _i('Continue'),
 		txt_add: _i('Add'),
 		txt_move: _i('Move'),
 	};
+
+	// AI changes
+	var origin = '',
+		destiny = '',
+		typeAIunitMove = '';
 
 	var resetMap = function () {
 		if (GAME) {
@@ -202,15 +231,64 @@ viewModelList.push(function () {
 			vm.isAddAction(false);
 			vm.selectedUnit('worker');
 			vm.currentFaction(currentPlayer.factionName);
+			vm.viewHumanOptions(!currentPlayer.ai);
+			vm.visibleArrow(currentPlayer.ai);
+
+			if (!currentPlayer.ai) {
+				//human
+				vm.txt_lead_1(_i('Move your pieces by selecting in map,'));
+				vm.txt_lead_2(_i('or add new pieces'));
+			} else {
+				//ai
+				origin = AI_actions.move.origin.num;
+				destiny = AI_actions.move.destiny.num;
+				typeAIunitMove = AI_actions.move.type;
+
+
+				var txt = _i('Move the %faction %unit from/to the selected territory.');
+
+				txt = txt.replace('%faction',currentPlayer.factionName);
+				txt = txt.replace('%unit',typeAIunitMove);
+
+				vm.txt_lead_1(txt);
+				vm.txt_lead_2('');
+				vm.aiSelectedUnit(vm[typeAIunitMove + 'Points']);
+
+			}
 
 			// create hexagons
 			var hexs = [];
 			for (var a in GAME.MAP) {
 				var d = GAME.MAP[a];
-				var h = hexagonMap(d);
+
+				var aiType = null;
+				if (currentPlayer.ai) {
+					// AI
+					if (d.num === origin) {
+						aiType = 'origin';
+					}
+					if (d.num === destiny) {
+						aiType = 'destiny';
+					}
+				}
+
+				var h = hexagonMap(d, aiType);
 				hexs.push(h);
 			}
 			vm.hexagons(hexs);
+
+
+			//ARROW
+			if (currentPlayer.ai) {
+				var xd = arrow.x2 - arrow.x1,
+					yd = arrow.y2 - arrow.y1,
+					long = Math.sqrt((xd * xd) + (yd * yd)) / 100,
+					dAng = xd < 0 ? 180 : 0,
+					ang = (Math.atan(yd / xd) * 180 / Math.PI) + dAng;
+
+				vm.arrowTransform('translate(' + arrow.x1 + ',' + arrow.y1 + ') rotate(' + ang + ') scale(' + long + ',.7)');
+			}
+
 		}
 	};
 
@@ -247,11 +325,12 @@ viewModelList.push(function () {
 
 	// Continue
 	vm.continueAction = function () {
-		if (!mapHumanMoveElement()) {
-			var hexs = vm.hexagons();
+		if (!mapHumanMoveElement()) {		
 
 			if (!currentPlayer.ai) {
 				// Save Human changes
+				var hexs = vm.hexagons();
+
 				var mhCh = mapHumanChanges();
 				if (!mhCh) {
 					mhCh = {};
@@ -271,12 +350,31 @@ viewModelList.push(function () {
 							o.attack = cloneObject(hex.attack);
 						}
 						GAME.MAP[hex.num] = extendObject(GAME.MAP[hex.num], o);
-						
+
 					}
 				});
-			}else{
-				// Save AI changes ?
+			} else {
+				// Save AI changes
 
+				// origin = AI_actions.move.origin.num;
+				// destiny = AI_actions.move.destiny.num;
+				// typeAIunitMove = AI_actions.move.type;
+
+				// 1- Quit the unit from origin
+				GAME.MAP[origin].people[typeAIunitMove]--;
+
+				// 2- Put the unit in destiny
+				if(GAME.MAP[destiny].faction === null || GAME.MAP[destiny].faction === currentPlayer.factionName){
+					// if is not enemies
+					GAME.MAP[destiny].people[typeAIunitMove]++;
+					
+				}else{
+					// is enemies => attack
+					GAME.MAP[destiny].attack = {
+						'faction': currentPlayer.factionName
+					};
+					GAME.MAP[destiny].attack[typeAIunitMove] = 1;
+				}
 			}
 			// Reset status
 			mapHumanChanges(null);
@@ -286,7 +384,7 @@ viewModelList.push(function () {
 
 			// CONTINUE
 			GAME.hexConflict = GAME.evaluateAttack();
-			
+
 			if (GAME.hexConflict.workers.length > 0) {
 				// Attack workers
 				goToView('view_attack_worker');
@@ -295,15 +393,16 @@ viewModelList.push(function () {
 					goToView('view_war');
 				} else {
 					var hexEncounter = GAME.evaluateEncounter();
-					if(hexEncounter){
+					if (hexEncounter) {
 						// Encounter
 						goToView('view_encounter');
-					}else{
-						if(!currentPlayer.ai){
+					} else {
+						if (!currentPlayer.ai) {
 							//continue to human start
 							goToView('view_human_start');
-						}else{
+						} else {
 							// continue to evaluate AI resources
+							log('continue to evaluate AI resources');
 						}
 					}
 				}

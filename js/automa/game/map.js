@@ -212,7 +212,7 @@ G.MAP = {
 	'35': {
 		'num': 35,
 		'type': 'iron',
-		'encounter': true,
+		//'encounter': true,
 		'people': {
 			'worker': 0,
 			'mech': 0,
@@ -717,6 +717,16 @@ var initialMap = {
 // 	G.MAP[inMap[2]].people.worker = 1;
 // 	G.MAP[inMap[2]].people.mech = 1;
 // });
+
+G.notCrossRiverHexNum = {
+	'rusviet': '48-47-56-57',	
+	'crimean': '93-94-84-85',
+	'saxony': '81-71-72-82',
+	'polania': '41-42-51-52',	
+	'nordic': '15-25-26-35',
+	'togawa': '88-22-23-32-43-44-34-54-55-46-36-37-27-64-74-73-63-62-61-66-75-76-86-77-87',
+	'albion': '12-22-23-32-43-44-34-54-55-46-36-37-27-64-74-73-63-62-61-66-75-76-86-77-87'
+};
 
 G.getBaseMapIndex = function (factionName) {
 	return initialMap[factionName][0];

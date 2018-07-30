@@ -85,3 +85,7 @@
 	/* CURRENT PLAYER *****************************/
 	var currentPlayer = null;
 	/* end CURRENT PLAYER *****************************/
+
+	/* AI ACTIONS *****************************/
+	var AI_actions = null;
+	/* end AI ACTIONS *****************************/

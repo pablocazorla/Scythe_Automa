@@ -59,3 +59,35 @@
 .font-alt(){
   font-family:@font-family-alt;
 }
+
+
+// ANIMATION
+.keyframes(@name,@rules) {
+
+  @-webkit-keyframes @name {
+      @rules();
+  }
+
+  @-moz-keyframes @name {
+      @rules();
+  }
+
+  @-ms-keyframes @name {
+      @rules();
+  }
+
+  @-o-keyframes @name {
+      @rules();
+  }
+
+  @keyframes @name {
+      @rules();
+  }
+}
+.animation(@name,@t,@time:infinite) {
+  animation: @name @t @time;
+  -ms-animation: @name @t @time;
+  -moz-animation: @name @t @time;
+  -webkit-animation: @name @t @time;
+  -o-animation: @name @t @time;
+}
