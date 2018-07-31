@@ -89,3 +89,10 @@
 	/* AI ACTIONS *****************************/
 	var AI_actions = null;
 	/* end AI ACTIONS *****************************/
+
+	/* PUT AI STAR *****************************/
+	var putAIstar = null;
+	// {
+	// 	reason: 'war'
+	// };
+	/* end PUT AI STAR *****************************/

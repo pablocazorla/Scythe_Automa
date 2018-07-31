@@ -53,7 +53,7 @@ viewModelList.push(function () {
 							goToView('view_human_start');
 						} else {
 							// continue to evaluate AI resources
-							log('Evaluate');
+							goToView('view_ai_resources');
 						}
 					}
 				}

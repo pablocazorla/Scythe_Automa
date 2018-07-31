@@ -28,15 +28,22 @@ viewModelList.push(function () {
 	vm.continueAction = function () {		
 		if(currentPlayer.power >= 16 && currentPlayer.board.starsByPower > 0){
 			// Gain a Star for power
-			// Goto put star
+			putAIstar = {
+				reason:'power',
+				player:currentPlayer
+			};
+			
+			// Goto put star			
+			goToView('view_ai_star');
 		}else{
 			if(AI_actions.recruit){
 				// Goto AI recruit
 				goToView('view_ai_recruit');
 			}else{
-				var putAIStar = GAME.evaluateFinishTurnAI(currentPlayer);
+				putAIstar = GAME.evaluateFinishTurnAI(currentPlayer);
 				if(putAIStar){
 					// Goto put star
+					goToView('view_ai_star');
 				}else{
 					GAME.advancePlayer();
 					goToView('view_start_turn');

@@ -47,7 +47,16 @@ viewModelList.push(function () {
 		// 		}
 		// 	}
 		// }
-		goToView('view_attack_war_resources');
+		if(winner.board.starsByWar >= 0){
+			// Place star by war
+			putAIstar = {
+				reason: 'war',
+				player: winner
+			};
+			goToView('view_ai_star');
+		}else{
+			goToView('view_attack_war_resources');
+		}		
 	};
 
 	currentView.subscribe(function (newValue) {
@@ -76,15 +85,15 @@ viewModelList.push(function () {
 				textHelp1 = textHelp1.replace('$faction', capitalize(loser.factionName));
 				vm.txt_help1(textHelp1);
 				
-				winner.board.starsByWar--;
-				if(winner.board.starsByWar >= 0){
-					winner.board.stars--;
-					var textHelp2 = _i('$faction, the winner faction, places 1 star token in the combat space of the Triumph Track.');
-					textHelp2 = textHelp2.replace('$faction', capitalize(winner.factionName));
-					vm.txt_help2(textHelp2);
-				}else{
-					vm.txt_help2('');
-				}				
+				// winner.board.starsByWar--;
+				// if(winner.board.starsByWar >= 0){
+				// 	winner.board.stars--;
+				// 	var textHelp2 = _i('$faction, the winner faction, places 1 star token in the combat space of the Triumph Track.');
+				// 	textHelp2 = textHelp2.replace('$faction', capitalize(winner.factionName));
+				// 	vm.txt_help2(textHelp2);
+				// }else{
+				// 	vm.txt_help2('');
+				// }				
 				
 				var baseIndex = GAME.getBaseMapIndex(loser.factionName);
 				

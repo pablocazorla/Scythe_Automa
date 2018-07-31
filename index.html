@@ -967,6 +967,33 @@
       </div>
     </div>
 
+    <div class="scythe-view" id="view_ai_star" data-bind="css: {current:current}">
+      <div class="container">
+        <div class="centered">          
+          <div class="player-turn min">
+            <div class="player-img">
+              <img src="" data-bind="attr:{src:icon}" />
+            </div>
+            <div class="player-title" data-bind="text:title"></div>
+            <div class="player-sub">
+              (
+              <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
+              <span class="type" data-bind="text:playerName"></span>)
+            </div>
+          </div>
+          <div class="t1 center" data-bind="text:txt_title"></div>
+          <div class="star-img">
+            <img src="images/star.svg" />
+          </div>
+          <p class="lead mb10" data-bind="text:txt_1"></p>
+          <p class="mb20" data-bind="text:txt_2"></p>
+          <div class="footer">
+            <button data-bind="text:txt_continue,click:continueAction"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
 

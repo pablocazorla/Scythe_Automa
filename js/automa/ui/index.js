@@ -19,7 +19,7 @@
 //@prepros-append view_war_results.js
 //@prepros-append view_ai_resources.js
 //@prepros-append view_ai_recruit.js
+//@prepros-append view_ai_star.js
 
-//
 
 //@prepros-append _end.js

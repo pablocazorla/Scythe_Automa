@@ -41,7 +41,7 @@ viewModelList.push(function () {
 		if(vm.step() === 1){
 			vm.step(2);
 			vm.selectedPlayer(results.player1.winner ? 'p1':'p2');
-			var txtHelp = _i('$faction1 must reduce his power in %val1 (to %val1c), and $faction2 must reduce his power in %val2 (to %val2c).');
+			var txtHelp = _i('$faction1 must reduce its power in %val1 (to %val1c), and $faction2 must reduce its power in %val2 (to %val2c).');
 			txtHelp = txtHelp.replace('$faction1', capitalize(p1.factionName));
 			txtHelp = txtHelp.replace('%val1', results.player1.reduce);
 			txtHelp = txtHelp.replace('%val1c', p1.power);

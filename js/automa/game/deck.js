@@ -789,10 +789,10 @@ var getCard = (function () {
 					// 	'type': 'encounter_or_factory'
 					// },
 					// // Attack
-					// {
-					// 	'attack': 1,
-					// 	'type': 'character_or_mech'
-					// },
+					{
+						'attack': 1,
+						'type': 'character_or_mech'
+					},
 					{
 						'attack': 'worker',
 						'type': 'worker_attack'

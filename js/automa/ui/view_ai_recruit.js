@@ -26,9 +26,10 @@ viewModelList.push(function () {
 	};
 
 	vm.continueAction = function () {		
-		var putAIStar = GAME.evaluateFinishTurnAI(currentPlayer);
-		if(putAIStar){
+		putAIstar = GAME.evaluateFinishTurnAI(currentPlayer);
+		if(putAIstar){
 			// Goto put star
+			goToView('view_ai_star');
 		}else{
 			GAME.advancePlayer();
 			goToView('view_start_turn');

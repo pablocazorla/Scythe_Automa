@@ -4,10 +4,10 @@
 		goToView(vn);
 	}
 	
-	GAME = createGame([2,0,1]);
+	GAME = createGame([5,0,5]);
 //
+//force('view_ai_star');
 force('view_start_turn');
-//force('view_map');
 
 
 })();
