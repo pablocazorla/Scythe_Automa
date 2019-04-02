@@ -1,0 +1,91 @@
+.automa-grid {
+  position: relative;
+  width: 176px;
+  margin: 0 auto 15px;
+  .automa-grid-cont {
+    @b-color: #ccc;
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    border-left: 1px solid @b-color;
+    border-top: 1px solid @b-color;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.7);
+    .automa-step {
+      width: 25%;
+      .automa-step-cont {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 100%;
+        border-right: 1px solid @b-color;
+        border-bottom: 1px solid @b-color;
+      }
+    }
+  }
+  .automa-grid-marker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    .transition(all 0.2s);
+    .automa-grid-marker-cont {
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      svg {
+        position: relative;
+        top: -4px;
+        display: block;
+        width: 75%;
+        margin: 0 auto;
+
+        .rusviet {
+          fill: @color-icon-rusviet;
+        }
+        .togawa {
+          fill: @color-icon-togawa;
+        }
+        .crimean {
+          fill: @color-icon-crimean;
+        }
+        .saxony {
+          fill: @color-icon-saxony;
+        }
+        .polania {
+          fill: darken(@color-icon-polania, 5%);
+        }
+        .albion {
+          fill: lighten(@color-icon-albion, 10%);
+        }
+        .nordic {
+          fill: darken(@color-icon-nordic, 20%);
+        }
+      }
+    }
+  }
+}
+.automa-step-img {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  .transform(translateY(-50%));
+  img {
+    width: 80%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  &.automa-step-notriver {
+    .transform(none);
+    top: auto;
+    bottom: -2%;
+    img {
+      width: 40%;
+    }
+  }
+  &.withRiver {
+    .transform(none);
+    top: 5%;
+  }
+}

@@ -15,25 +15,25 @@
   <div id="scythe-container">
 
     <div id="bg">
-      <div class="g g1"></div>
-      <div class="g g2"></div>
-      <div class="g g3"></div>
-      <div class="g g4"></div>
+      <div className="g g1"></div>
+      <div className="g g2"></div>
+      <div className="g g3"></div>
+      <div className="g g4"></div>
     </div>
 
-    <div class="scythe-view view_alert" id="view_alert" data-bind="css: {current:current}">
-      <div class="alert-cont center">
+    <div className="scythe-view view_alert" id="view_alert" data-bind="css: {current:current}">
+      <div className="alert-cont center">
         <p data-bind="text:text"></p>
-        <div class="footer">
-          <button class="min" data-bind="text:txt_ok,click:closeAlert">Aceptar</button>
+        <div className="footer">
+          <button className="min" data-bind="text:txt_ok,click:closeAlert">Aceptar</button>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view presentation" id="presentation" data-bind="css: {current:current}">
-      <div class="container center">
-        <div class="t1">SCYTHE AUTOMA</div>
-        <div class="footer">
+    <div className="scythe-view presentation" id="presentation" data-bind="css: {current:current}">
+      <div className="container center">
+        <div className="t1">SCYTHE AUTOMA</div>
+        <div className="footer">
           <div data-bind="visible:isLang">
             <label>Language</label>
             <select data-bind="options:languages,value:lan">
@@ -44,32 +44,32 @@
       </div>
     </div>
 
-    <div class="scythe-view" id="view_new" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="t1 center" data-bind="text:txt_title"></div>
-        <p class="center" data-bind="text:txt_present"></p>
-        <div class="faction-list" data-bind="foreach:factions">
+    <div className="scythe-view" id="view_new" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="t1 center" data-bind="text:txt_title"></div>
+        <p className="center" data-bind="text:txt_present"></p>
+        <div className="faction-list" data-bind="foreach:factions">
           <div data-bind="attr:{class:className},click:changePlayer">
-            <div class="faction-type">
-              <div class="icon">
-                <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
+            <div className="faction-type">
+              <div className="icon">
+                <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
               </div>
-              <div class="type" data-bind="text:playerName"></div>
+              <div className="type" data-bind="text:playerName"></div>
             </div>
-            <div class="faction-to">
-              <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            <div className="faction-to">
+              <i className="fa fa-chevron-right" aria-hidden="true"></i>
             </div>
-            <div class="faction-flag">
-              <div class="faction">
+            <div className="faction-flag">
+              <div className="faction">
                 <img src="" data-bind="attr:{src:icon}" />
               </div>
-              <div class="faction-title" data-bind="text:title"></div>
-              <div class="faction-power">
-                <div class="faction-icon-power">
+              <div className="faction-title" data-bind="text:title"></div>
+              <div className="faction-power">
+                <div className="faction-icon-power">
                   <img src="images/power.svg" alt="">
                   <span data-bind="text:power"></span>
                 </div>
-                <div class="faction-icon-card">
+                <div className="faction-icon-card">
                   <img src="images/card-power.svg" alt="">
                   <span data-bind="text:cards"></span>
                 </div>
@@ -77,51 +77,51 @@
             </div>
           </div>
         </div>
-        <div class="footer">
+        <div className="footer">
           <button data-bind="text:txt_continue,click:continueAction"></button>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_start_turn" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="t1 center" data-bind="text:txt_title"></div>
-          <div class="player-turn" data-bind="css:{min:ai}">
-            <div class="player-img">
+    <div className="scythe-view" id="view_start_turn" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="t1 center" data-bind="text:txt_title"></div>
+          <div className="player-turn" data-bind="css:{min:ai}">
+            <div className="player-img">
               <img src="" data-bind="attr:{src:icon}" />
             </div>
-            <div class="player-title" data-bind="text:title"></div>
-            <div class="player-sub">
+            <div className="player-title" data-bind="text:title"></div>
+            <div className="player-sub">
               (
-              <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
-              <span class="type" data-bind="text:playerName"></span>)
+              <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
+              <span className="type" data-bind="text:playerName"></span>)
             </div>
           </div>
-          <div class="automa-grid" data-bind="visible:ai">
-            <div class="automa-grid-cont" data-bind="foreach:timeline">
-              <div class="automa-step">
-                <div class="automa-step-cont">
-                  <div class="automa-step-img automa-step-notstar" data-bind="visible:!star,css:{withRiver:notRiver}">
+          <div className="automa-grid" data-bind="visible:ai">
+            <div className="automa-grid-cont" data-bind="foreach:timeline">
+              <div className="automa-step">
+                <div className="automa-step-cont">
+                  <div className="automa-step-img automa-step-notstar" data-bind="visible:!star,css:{withRiver:notRiver}">
                     <img src="images/star-o.svg" alt="">
                   </div>
-                  <div class="automa-step-img automa-step-star" data-bind="visible:star">
+                  <div className="automa-step-img automa-step-star" data-bind="visible:star">
                     <img src="images/star.svg" alt="">
                   </div>
-                  <div class="automa-step-img automa-step-notriver" data-bind="visible:notRiver">
+                  <div className="automa-step-img automa-step-notriver" data-bind="visible:notRiver">
                     <img src="images/cross-rivers.svg" alt="">
                   </div>
-                  <div class="automa-step-img automa-step-one" data-bind="visible:one,css:{withRiver:notRiver}">
+                  <div className="automa-step-img automa-step-one" data-bind="visible:one,css:{withRiver:notRiver}">
                     <img src="images/icon-1.svg" alt="">
                   </div>
-                  <div class="automa-step-img automa-step-two" data-bind="visible:two">
+                  <div className="automa-step-img automa-step-two" data-bind="visible:two">
                     <img src="images/icon-2.svg" alt="">
                   </div>
                 </div>
               </div>
             </div>
-            <div class="automa-grid-marker" data-bind="attr:{style:ai_position}">
-              <div class="automa-grid-marker-cont">
+            <div className="automa-grid-marker" data-bind="attr:{style:ai_position}">
+              <div className="automa-grid-marker-cont">
                 <svg viewBox="0 0 30 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve"
                   xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                   <g>
@@ -142,109 +142,109 @@
               </div>
             </div>
           </div>
-          <div class="footer">
+          <div className="footer">
             <button data-bind="text:txt_continue,click:continueAction"></button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_not_autometta" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="player-turn mid">
-            <div class="player-img">
+    <div className="scythe-view" id="view_not_autometta" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="player-turn mid">
+            <div className="player-img">
               <img src="" data-bind="attr:{src:icon}" />
             </div>
-            <div class="player-title" data-bind="text:title"></div>
-            <div class="player-sub">
+            <div className="player-title" data-bind="text:title"></div>
+            <div className="player-sub">
               (
-              <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
-              <span class="type" data-bind="text:playerName"></span>)
+              <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
+              <span className="type" data-bind="text:playerName"></span>)
             </div>
           </div>
-          <div class="not-autometta-img">
+          <div className="not-autometta-img">
             <img src="images/not-autometta.svg" alt="">
           </div>
-          <p class="lead mb20" data-bind="text:txt_title"></p>
-          <div class="footer">
+          <p className="lead mb20" data-bind="text:txt_title"></p>
+          <div className="footer">
             <button data-bind="text:txt_continue,click:continueAction"></button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_not_move" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="player-turn mid">
-            <div class="player-img">
+    <div className="scythe-view" id="view_not_move" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="player-turn mid">
+            <div className="player-img">
               <img src="" data-bind="attr:{src:icon}" />
             </div>
-            <div class="player-title" data-bind="text:title"></div>
-            <div class="player-sub">
+            <div className="player-title" data-bind="text:title"></div>
+            <div className="player-sub">
               (
-              <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
-              <span class="type" data-bind="text:playerName"></span>)
+              <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
+              <span className="type" data-bind="text:playerName"></span>)
             </div>
           </div>
-          <div class="not-move-img">
+          <div className="not-move-img">
             <img src="images/not-move.svg" alt="">
           </div>
-          <p class="lead mb20" data-bind="text:txt_title"></p>
-          <div class="footer">
+          <p className="lead mb20" data-bind="text:txt_title"></p>
+          <div className="footer">
             <button data-bind="text:txt_continue,click:continueAction"></button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_human_start" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered centered_human_start">
-          <div class="player-turn min">
-            <div class="player-img">
+    <div className="scythe-view" id="view_human_start" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered centered_human_start">
+          <div className="player-turn min">
+            <div className="player-img">
               <img src="" data-bind="attr:{src:icon}" />
             </div>
-            <div class="player-title" data-bind="text:title"></div>
-            <div class="player-sub">
+            <div className="player-title" data-bind="text:title"></div>
+            <div className="player-sub">
               (
-              <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
-              <span class="type" data-bind="text:playerName"></span>)
+              <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
+              <span className="type" data-bind="text:playerName"></span>)
             </div>
           </div>
           <p data-bind="text:txt_choose"></p>
-          <div class="button" data-bind="click:moveOrAddAction">
-            <span class="btn-ic">
+          <div className="button" data-bind="click:moveOrAddAction">
+            <span className="btn-ic">
               <img src="images/move_or_add.svg" alt="">
             </span>
             <span data-bind="text:txt_move_add"></span>
           </div>
           <p>or:</p>
-          <div class="button btn-continue" data-bind="click:continueAction">
+          <div className="button btn-continue" data-bind="click:continueAction">
             <div data-bind="text:txt_continue"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_map" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="ai-selected-unit-map" data-bind="visible:visibleArrow">
+    <div className="scythe-view" id="view_map" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="ai-selected-unit-map" data-bind="visible:visibleArrow">
             <svg data-bind="attr:{class:currentFaction}" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
               <path transform="translate(4,5)" data-bind="attr:{d:aiSelectedUnit}" />
             </svg>
           </div>
-          <p class="lead">
+          <p className="lead">
             <span data-bind="text:txt_lead_1"></span>
             <br/>
             <span data-bind="text:txt_lead_2"></span>
           </p>
-          <div class="map-container">
-            <div class="map-container-cont">
-              <img src="images/map-back-rivers.svg" class="map-back-rivers">
+          <div className="map-container">
+            <div className="map-container-cont">
+              <img src="images/map-back-rivers.svg" className="map-back-rivers">
               <svg data-bind="attr: {viewBox:viewBox}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                 xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                 <defs>
@@ -259,16 +259,16 @@
                 </defs>
                 <g data-bind="foreach:hexagons">
                   <g data-bind="attr:{transform:transform,class:className}">
-                    <polygon class="base" data-bind="css:{withEnemies:withEnemies,origin:origin,destiny:destiny},attr:{points:points}" />
-                    <g class="attack" transform="translate(-1,7)" data-bind="if:withEnemies">
+                    <polygon className="base" data-bind="css:{withEnemies:withEnemies,origin:origin,destiny:destiny},attr:{points:points}" />
+                    <g className="attack" transform="translate(-1,7)" data-bind="if:withEnemies">
                       <path data-bind="attr:{d:attackPoints1}" style="fill:#fff;fill-opacity:0.501961;" />
                       <path data-bind="attr:{d:attackPoints2}" style="fill:#fff;" />
                     </g>
                     <g data-bind="if:factory">
-                      <path class="factory-icon" data-bind="attr:{d:factoryPoints}" />
+                      <path className="factory-icon" data-bind="attr:{d:factoryPoints}" />
                     </g>
                     <g data-bind="if:encounter">
-                      <circle transform="translate(50,100)" cx="10" cy="10" r="10" class="encounter-marker" />
+                      <circle transform="translate(50,100)" cx="10" cy="10" r="10" className="encounter-marker" />
                     </g>
                     <g filter="url(#grayscale_svg)" data-bind="if:factionHeadImg">
                       <image data-bind="attr:{x:factionHeadImgX,y:factionHeadImgY,width:factionHeadImgWidth,height:factionHeadImgWidth,href:factionHeadImgHref}"
@@ -276,10 +276,10 @@
                     </g>
                     <g data-bind="attr:{class:peopleFactionClass},if:faction,visible:!withEnemies()">
                       <g data-bind="if:mech">
-                        <path transform="translate(10,29)" class="mech" data-bind="attr:{d:mechPoints}" />
+                        <path transform="translate(10,29)" className="mech" data-bind="attr:{d:mechPoints}" />
                       </g>
                       <g data-bind="if:character">
-                        <path transform="translate(34,74)" class="character" data-bind="attr:{d:characterPoints}" />
+                        <path transform="translate(34,74)" className="character" data-bind="attr:{d:characterPoints}" />
                       </g>
                       <g data-bind="if:worker">
                         <path transform="translate(70,30)" id="worker" data-bind="attr:{d:workerPoints}" />
@@ -307,12 +307,12 @@
 
 
 
-                    <polygon class="detect-click" data-bind="attr:{points:points},click:onClickHexagon" />
+                    <polygon className="detect-click" data-bind="attr:{points:points},click:onClickHexagon" />
                   </g>
                 </g>
 
 
-                <g class="map-arrow" data-bind="attr:{transform:arrowTransform},visible:visibleArrow">
+                <g className="map-arrow" data-bind="attr:{transform:arrowTransform},visible:visibleArrow">
                   <g transform="translate(0,10)">
                     <path d="M14.504,12.65l0,17.35l-14.504,-30l14.504,-30l0,17.35l85.496,0l0,25.3l-85.496,0Z" style="fill:rgba(0, 0, 0, 0.4)"
                     />
@@ -327,32 +327,32 @@
 
 
               </svg>
-              <div class="map-human-options" data-bind="visible:viewHumanOptions">
-                <div class="map-human-undo" data-bind="css:{enabled:undoChangesEnabled},click:undoChanges">
-                  <i class="fa fa-undo" aria-hidden="true"></i>
+              <div className="map-human-options" data-bind="visible:viewHumanOptions">
+                <div className="map-human-undo" data-bind="css:{enabled:undoChangesEnabled},click:undoChanges">
+                  <i className="fa fa-undo" aria-hidden="true"></i>
                   <span>Undo all changes</span>
                 </div>
-                <div class="map-human-pan">
-                  <div class="map-op-selector" data-bind="click:toggleAction">
+                <div className="map-human-pan">
+                  <div className="map-op-selector" data-bind="click:toggleAction">
                     <span data-bind="text:txt_move,visible:!isAddAction()"></span>
                     <span data-bind="text:txt_add,visible:isAddAction"></span>
-                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    <i className="fa fa-caret-down" aria-hidden="true"></i>
                   </div>
-                  <div class="map-op-ic" data-bind="css:{selected:selectedUnit()==='worker'},click:selectWorker">
+                  <div className="map-op-ic" data-bind="css:{selected:selectedUnit()==='worker'},click:selectWorker">
                     <svg data-bind="click:selectWorker,attr:{class:currentFaction}" width="100%" height="100%" viewBox="0 0 45 52" version="1.1"
                       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
                       style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                       <path transform="translate(4,5)" data-bind="attr:{d:workerPoints}" />
                     </svg>
                   </div>
-                  <div class="map-op-ic" data-bind="css:{selected:selectedUnit()==='mech'},click:selectMech">
+                  <div className="map-op-ic" data-bind="css:{selected:selectedUnit()==='mech'},click:selectMech">
                     <svg data-bind="click:selectMech,attr:{class:currentFaction}" width="100%" height="100%" viewBox="0 0 45 52" version="1.1"
                       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
                       style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                       <path transform="translate(2,0)" data-bind="attr:{d:mechPoints}" />
                     </svg>
                   </div>
-                  <div class="map-op-ic" data-bind="css:{selected:selectedUnit()==='character',disabled:disabledCharacter},click:selectCharacter">
+                  <div className="map-op-ic" data-bind="css:{selected:selectedUnit()==='character',disabled:disabledCharacter},click:selectCharacter">
                     <svg data-bind="click:selectCharacter,attr:{class:currentFaction}" width="100%" height="100%" viewBox="0 0 45 52" version="1.1"
                       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
                       style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
@@ -363,12 +363,12 @@
               </div>
             </div>
           </div>
-          <div class="footer">
+          <div className="footer">
             <button data-bind="text:txt_continue,click:continueAction"></button>
           </div>
         </div>
         <div id="map-cursor">
-          <div class="map-cursor-svg" data-bind="visible:mapCursorVisible">
+          <div className="map-cursor-svg" data-bind="visible:mapCursorVisible">
             <svg data-bind="attr:{class:currentFaction}" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg"
               xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
               <g data-bind="if:mapCursorMech">
@@ -386,97 +386,122 @@
       </div>
     </div>
 
-    <div class="scythe-view" id="view_attack_worker" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="attack-row">
-            <div class="player-turn min">
-              <div class="player-icon-unit" data-bind="attr:{class:icon_1}">
+
+
+    <div className="scythe-view" id="view_attack_worker" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+
+
+          <div className="attack-row">
+            <div className="player-turn min">
+              <div className="player-icon-unit" data-bind="attr:{class:icon_1}">
                 <svg width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                   xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                   <path data-bind="attr:{d:mechPoints}" />
                 </svg>
               </div>
-              <div class="player-title" data-bind="text:title_1"></div>
-              <div class="player-sub">
+              <div className="player-title" data-bind="text:title_1"></div>
+              <div className="player-sub">
                 (
-                <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
-                <span class="type" data-bind="text:playerName_1"></span>)
+                <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
+                <span className="type" data-bind="text:playerName_1"></span>)
               </div>
             </div>
-            <div class="player-turn-mid">
+            <div className="player-turn-mid">
               <div data-bind="text:txt_attack"></div>
             </div>
-            <div class="player-turn min">
-              <div class="player-icon-unit" data-bind="attr:{class:icon_2}">
+            <div className="player-turn min">
+              <div className="player-icon-unit" data-bind="attr:{class:icon_2}">
                 <svg xdata-bind="click:addWorker,attr:{class:currentFaction}" width="100%" height="100%" viewBox="0 0 45 52" version="1.1"
                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
                   style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                   <path data-bind="attr:{d:workerPoints}" />
                 </svg>
               </div>
-              <div class="player-title" data-bind="text:title_2"></div>
-              <div class="player-sub">
+              <div className="player-title" data-bind="text:title_2"></div>
+              <div className="player-sub">
                 (
-                <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
-                <span class="type" data-bind="text:playerName_2"></span>)
+                <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
+                <span className="type" data-bind="text:playerName_2"></span>)
               </div>
             </div>
           </div>
-          <div class="illustration">
+
+
+
+          
+          <div className="illustration">
             <img src="images/attack-worker.jpg" alt="">
           </div>
 
-          <p class="italic" data-bind="text:txt_result"></p>
+          <p className="italic" data-bind="text:txt_result"></p>
 
-          <div class="button btn-continue" data-bind="click:continueAction">
+          <div className="button btn-continue" data-bind="click:continueAction">
             <div data-bind="text:txt_continue"></div>
           </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_attack_worker_resources" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="attack-row">
-            <div class="player-turn min">
-              <div class="player-icon-unit" data-bind="attr:{class:icon_1}">
+
+
+
+
+    <div className="scythe-view" id="view_attack_worker_resources" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="attack-row">
+            <div className="player-turn min">
+              <div className="player-icon-unit" data-bind="attr:{class:icon_1}">
                 <svg width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                   xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                   <path data-bind="attr:{d:mechPoints}" />
                 </svg>
               </div>
-              <div class="player-title" data-bind="text:title_1"></div>
-              <div class="player-sub">
+              <div className="player-title" data-bind="text:title_1"></div>
+              <div className="player-sub">
                 (
-                <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
-                <span class="type" data-bind="text:playerName_1"></span>)
+                <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
+                <span className="type" data-bind="text:playerName_1"></span>)
               </div>
             </div>
-            <div class="player-turn-mid">
+            <div className="player-turn-mid">
               <div data-bind="text:txt_attack"></div>
             </div>
-            <div class="player-turn min">
-              <div class="player-icon-unit" data-bind="attr:{class:icon_2}">
+            <div className="player-turn min">
+              <div className="player-icon-unit" data-bind="attr:{class:icon_2}">
                 <svg xdata-bind="click:addWorker,attr:{class:currentFaction}" width="100%" height="100%" viewBox="0 0 45 52" version="1.1"
                   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/"
                   style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                   <path data-bind="attr:{d:workerPoints}" />
                 </svg>
               </div>
-              <div class="player-title" data-bind="text:title_2"></div>
-              <div class="player-sub">
+              <div className="player-title" data-bind="text:title_2"></div>
+              <div className="player-sub">
                 (
-                <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
-                <span class="type" data-bind="text:playerName_2"></span>)
+                <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
+                <span className="type" data-bind="text:playerName_2"></span>)
               </div>
             </div>
           </div>
-          <div class="t1">Resources</div>
-          <div class="resources-row" data-bind="foreach:resourceList,visible:resourceListVisible">
-            <div class="resources-item">
-              <div class="resources-item-cont">
+          <div className="t1">Resources</div>
+          <div className="resources-row" data-bind="foreach:resourceList,visible:resourceListVisible">
+            <div className="resources-item">
+              <div className="resources-item-cont">
                 <img src="images/food.svg" data-bind="visible:type==='farm'" />
                 <img src="images/iron.svg" data-bind="visible:type==='iron'" />
                 <img src="images/oil.svg" data-bind="visible:type==='oil'" />
@@ -484,69 +509,69 @@
               </div>
             </div>
           </div>
-          <div class="resources-row" data-bind="visible:allResources">
-            <div class="resources-item">
-              <div class="resources-item-cont">
+          <div className="resources-row" data-bind="visible:allResources">
+            <div className="resources-item">
+              <div className="resources-item-cont">
                 <img src="images/resource.svg" />
               </div>
             </div>
           </div>
-          <p class="mb20" data-bind="text:txt_result"></p>
+          <p className="mb20" data-bind="text:txt_result"></p>
 
-          <div class="button btn-continue" data-bind="click:continueAction">
+          <div className="button btn-continue" data-bind="click:continueAction">
             <div data-bind="text:txt_continue"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_attack_war_resources" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="tit_combat">
-            <i class="fa fa-star"></i>
+    <div className="scythe-view" id="view_attack_war_resources" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="tit_combat">
+            <i className="fa fa-star"></i>
             <span data-bind="text:txt_tit"></span>
-            <i class="fa fa-star"></i>
+            <i className="fa fa-star"></i>
           </div>
-          <div class="win-selector">
-            <div class="attack-row">
-              <div class="player-turn min no-click" data-bind="css:{selected:selectedPlayer()==='p1'}">
-                <div class="player-icon-unit" data-bind="attr:{class:icon_1}">
+          <div className="win-selector">
+            <div className="attack-row">
+              <div className="player-turn min no-click" data-bind="css:{selected:selectedPlayer()==='p1'}">
+                <div className="player-icon-unit" data-bind="attr:{class:icon_1}">
                   <svg width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                     <path data-bind="attr:{d:mechPoints}" />
                   </svg>
                 </div>
-                <div class="player-title" data-bind="text:title_1"></div>
-                <div class="player-sub">
+                <div className="player-title" data-bind="text:title_1"></div>
+                <div className="player-sub">
                   (
-                  <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
-                  <span class="type" data-bind="text:playerName_1"></span>)
+                  <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
+                  <span className="type" data-bind="text:playerName_1"></span>)
                 </div>
-                <div class="pl-select-ic">
-                  <i class="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
-                  <i class="fa fa-square-o ic-check-no" aria-hidden="true"></i>
+                <div className="pl-select-ic">
+                  <i className="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
+                  <i className="fa fa-square-o ic-check-no" aria-hidden="true"></i>
                 </div>
               </div>
-              <div class="player-turn-mid">
+              <div className="player-turn-mid">
                 vs.
               </div>
-              <div class="player-turn min no-click" data-bind="css:{selected:selectedPlayer()==='p2'}">
-                <div class="player-icon-unit" data-bind="attr:{class:icon_2}">
-                  <svg class="inverted" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              <div className="player-turn min no-click" data-bind="css:{selected:selectedPlayer()==='p2'}">
+                <div className="player-icon-unit" data-bind="attr:{class:icon_2}">
+                  <svg className="inverted" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                     <path data-bind="attr:{d:mechPoints}" />
                   </svg>
                 </div>
-                <div class="player-title" data-bind="text:title_2"></div>
-                <div class="player-sub">
+                <div className="player-title" data-bind="text:title_2"></div>
+                <div className="player-sub">
                   (
-                  <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
-                  <span class="type" data-bind="text:playerName_2"></span>)
+                  <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
+                  <span className="type" data-bind="text:playerName_2"></span>)
                 </div>
-                <div class="pl-select-ic">
-                  <i class="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
-                  <i class="fa fa-square-o ic-check-no" aria-hidden="true"></i>
+                <div className="pl-select-ic">
+                  <i className="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
+                  <i className="fa fa-square-o ic-check-no" aria-hidden="true"></i>
                 </div>
               </div>
             </div>
@@ -562,10 +587,10 @@
 
 
 
-          <div class="t1">Resources</div>
-          <div class="resources-row" data-bind="foreach:resourceList,visible:resourceListVisible">
-            <div class="resources-item">
-              <div class="resources-item-cont">
+          <div className="t1">Resources</div>
+          <div className="resources-row" data-bind="foreach:resourceList,visible:resourceListVisible">
+            <div className="resources-item">
+              <div className="resources-item-cont">
                 <img src="images/food.svg" data-bind="visible:type==='farm'" />
                 <img src="images/iron.svg" data-bind="visible:type==='iron'" />
                 <img src="images/oil.svg" data-bind="visible:type==='oil'" />
@@ -573,14 +598,14 @@
               </div>
             </div>
           </div>
-          <div class="resources-row" data-bind="visible:allResources">
-            <div class="resources-item">
-              <div class="resources-item-cont">
+          <div className="resources-row" data-bind="visible:allResources">
+            <div className="resources-item">
+              <div className="resources-item-cont">
                 <img src="images/resource.svg" />
               </div>
             </div>
           </div>
-          <p class="mb10" data-bind="text:txt_result"></p>
+          <p className="mb10" data-bind="text:txt_result"></p>
 
 
 
@@ -599,328 +624,336 @@
 
 
 
-          <div class="button btn-continue button_combat" data-bind="text:txt_continue,click:continueAction"></div>
+          <div className="button btn-continue button_combat" data-bind="text:txt_continue,click:continueAction"></div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_encounter" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="t1" data-bind="text:txt_tit"></div>
-          <div class="attack-row">
-            <div class="player-turn min">
-              <div class="player-icon-unit big" data-bind="attr:{class:icon_1}">
+    <div className="scythe-view" id="view_encounter" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+
+
+
+          
+          <div className="t1" data-bind="text:txt_tit"></div>
+          <div className="attack-row">
+            <div className="player-turn min">
+              <div className="player-icon-unit big" data-bind="attr:{class:icon_1}">
                 <svg width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                   xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                   <path data-bind="attr:{d:mechPoints}" />
                 </svg>
               </div>
-              <div class="player-title" data-bind="text:title_1"></div>
-              <div class="player-sub">
+              <div className="player-title" data-bind="text:title_1"></div>
+              <div className="player-sub">
                 (
-                <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
-                <span class="type" data-bind="text:playerName_1"></span>)
+                <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
+                <span className="type" data-bind="text:playerName_1"></span>)
               </div>
             </div>
           </div>
-          <img src="images/encounter.svg" class="encounter-mark-img">
+          <img src="images/encounter.svg" className="encounter-mark-img">
 
-          <p class="mb20" data-bind="text:txt_result"></p>
+          <p className="mb20" data-bind="text:txt_result"></p>
 
-          <div class="button btn-continue" data-bind="click:continueAction">
+          <div className="button btn-continue" data-bind="click:continueAction">
             <div data-bind="text:txt_continue"></div>
           </div>
+
+
+
+
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_war" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="tit_combat">
-            <i class="fa fa-star"></i>
+    <div className="scythe-view" id="view_war" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="tit_combat">
+            <i className="fa fa-star"></i>
             <span data-bind="text:txt_tit"></span>
-            <i class="fa fa-star"></i>
+            <i className="fa fa-star"></i>
           </div>
-          <div class="attack-row">
-            <div class="player-turn min">
-              <div class="player-icon-unit" data-bind="attr:{class:icon_1}">
+          <div className="attack-row">
+            <div className="player-turn min">
+              <div className="player-icon-unit" data-bind="attr:{class:icon_1}">
                 <svg width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                   xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                   <path data-bind="attr:{d:mechPoints}" />
                 </svg>
               </div>
-              <div class="player-title" data-bind="text:title_1"></div>
-              <div class="player-sub">
+              <div className="player-title" data-bind="text:title_1"></div>
+              <div className="player-sub">
                 (
-                <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
-                <span class="type" data-bind="text:playerName_1"></span>)
+                <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
+                <span className="type" data-bind="text:playerName_1"></span>)
               </div>
             </div>
-            <div class="player-turn-mid">
+            <div className="player-turn-mid">
               vs.
             </div>
-            <div class="player-turn min">
-              <div class="player-icon-unit" data-bind="attr:{class:icon_2}">
-                <svg class="inverted" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            <div className="player-turn min">
+              <div className="player-icon-unit" data-bind="attr:{class:icon_2}">
+                <svg className="inverted" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                   xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                   <path data-bind="attr:{d:mechPoints}" />
                 </svg>
               </div>
-              <div class="player-title" data-bind="text:title_2"></div>
-              <div class="player-sub">
+              <div className="player-title" data-bind="text:title_2"></div>
+              <div className="player-sub">
                 (
-                <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
-                <span class="type" data-bind="text:playerName_2"></span>)
+                <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
+                <span className="type" data-bind="text:playerName_2"></span>)
               </div>
             </div>
           </div>
-          <div class="illustration">
+          <div className="illustration">
             <img src="images/attack.jpg" alt="">
           </div>
-          <div class="button btn-continue button_combat" data-bind="text:txt_continue,click:continueAction"></div>
+          <div className="button btn-continue button_combat" data-bind="text:txt_continue,click:continueAction"></div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_war_bet_humans" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="tit_combat">
-            <i class="fa fa-star"></i>
+    <div className="scythe-view" id="view_war_bet_humans" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="tit_combat">
+            <i className="fa fa-star"></i>
             <span data-bind="text:txt_tit"></span>
-            <i class="fa fa-star"></i>
+            <i className="fa fa-star"></i>
           </div>
-          <div class="subtit_combat" data-bind="text:txt_subtit"></div>
-          <div class="win-selector">
-            <p class="lead" data-bind="text:txt_cop"></p>
-            <div class="attack-row">
-              <div class="player-turn min" data-bind="css:{selected:selectedPlayer()==='p1'},click:selectP1">
-                <div class="player-icon-unit" data-bind="attr:{class:icon_1}">
+          <div className="subtit_combat" data-bind="text:txt_subtit"></div>
+          <div className="win-selector">
+            <p className="lead" data-bind="text:txt_cop"></p>
+            <div className="attack-row">
+              <div className="player-turn min" data-bind="css:{selected:selectedPlayer()==='p1'},click:selectP1">
+                <div className="player-icon-unit" data-bind="attr:{class:icon_1}">
                   <svg width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                     <path data-bind="attr:{d:mechPoints}" />
                   </svg>
                 </div>
-                <div class="player-title" data-bind="text:title_1"></div>
-                <div class="player-sub">
+                <div className="player-title" data-bind="text:title_1"></div>
+                <div className="player-sub">
                   (
-                  <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
-                  <span class="type" data-bind="text:playerName_1"></span>)
+                  <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
+                  <span className="type" data-bind="text:playerName_1"></span>)
                 </div>
-                <div class="pl-select-ic">
-                  <i class="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
-                  <i class="fa fa-square-o ic-check-no" aria-hidden="true"></i>
+                <div className="pl-select-ic">
+                  <i className="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
+                  <i className="fa fa-square-o ic-check-no" aria-hidden="true"></i>
                 </div>
               </div>
-              <div class="player-turn-mid">
+              <div className="player-turn-mid">
                 vs.
               </div>
-              <div class="player-turn min" data-bind="css:{selected:selectedPlayer()==='p2'},click:selectP2">
-                <div class="player-icon-unit" data-bind="attr:{class:icon_2}">
-                  <svg class="inverted" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              <div className="player-turn min" data-bind="css:{selected:selectedPlayer()==='p2'},click:selectP2">
+                <div className="player-icon-unit" data-bind="attr:{class:icon_2}">
+                  <svg className="inverted" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                     <path data-bind="attr:{d:mechPoints}" />
                   </svg>
                 </div>
-                <div class="player-title" data-bind="text:title_2"></div>
-                <div class="player-sub">
+                <div className="player-title" data-bind="text:title_2"></div>
+                <div className="player-sub">
                   (
-                  <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
-                  <span class="type" data-bind="text:playerName_2"></span>)
+                  <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
+                  <span className="type" data-bind="text:playerName_2"></span>)
                 </div>
-                <div class="pl-select-ic">
-                  <i class="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
-                  <i class="fa fa-square-o ic-check-no" aria-hidden="true"></i>
+                <div className="pl-select-ic">
+                  <i className="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
+                  <i className="fa fa-square-o ic-check-no" aria-hidden="true"></i>
                 </div>
               </div>
             </div>
-            <p class="italic" data-bind="text:txt_help"></p>
+            <p className="italic" data-bind="text:txt_help"></p>
           </div>
-          <div class="button btn-continue button_combat" data-bind="text:txt_continue,click:continueAction"></div>
+          <div className="button btn-continue button_combat" data-bind="text:txt_continue,click:continueAction"></div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_war_bet_ai" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="tit_combat">
-            <i class="fa fa-star"></i>
+    <div className="scythe-view" id="view_war_bet_ai" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="tit_combat">
+            <i className="fa fa-star"></i>
             <span data-bind="text:txt_tit"></span>
-            <i class="fa fa-star"></i>
+            <i className="fa fa-star"></i>
           </div>
-          <div class="subtit_combat" data-bind="text:txt_subtit"></div>
-          <div class="win-selector">
-            <p class="lead" data-bind="text:txt_cop,visible:step()!==1"></p>
-            <div class="attack-row">
-              <div class="player-turn min" data-bind="css:{selected:selectedPlayer()==='p1'}">
-                <div class="player-icon-unit" data-bind="attr:{class:icon_1}">
+          <div className="subtit_combat" data-bind="text:txt_subtit"></div>
+          <div className="win-selector">
+            <p className="lead" data-bind="text:txt_cop,visible:step()!==1"></p>
+            <div className="attack-row">
+              <div className="player-turn min" data-bind="css:{selected:selectedPlayer()==='p1'}">
+                <div className="player-icon-unit" data-bind="attr:{class:icon_1}">
                   <svg width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                     <path data-bind="attr:{d:mechPoints}" />
                   </svg>
                 </div>
-                <div class="player-title" data-bind="text:title_1"></div>
-                <div class="player-sub">
+                <div className="player-title" data-bind="text:title_1"></div>
+                <div className="player-sub">
                   (
-                  <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
-                  <span class="type" data-bind="text:playerName_1"></span>)
+                  <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
+                  <span className="type" data-bind="text:playerName_1"></span>)
                 </div>
-                <div class="pl-select-ic" data-bind="visible:step()!==1">
-                  <i class="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
-                  <i class="fa fa-square-o ic-check-no" aria-hidden="true"></i>
+                <div className="pl-select-ic" data-bind="visible:step()!==1">
+                  <i className="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
+                  <i className="fa fa-square-o ic-check-no" aria-hidden="true"></i>
                 </div>
-                <div class="pl-pow" data-bind="visible:step()===1">
-                  <div class="pl-pow-lab" data-bind="text:txt_attackWith"></div>
-                  <div class="pl-pow-img">
+                <div className="pl-pow" data-bind="visible:step()===1">
+                  <div className="pl-pow-lab" data-bind="text:txt_attackWith"></div>
+                  <div className="pl-pow-img">
                     <img src="images/power.svg" />
-                    <div class="pl-pow-num" data-bind="text:txt_pow1"></div>
+                    <div className="pl-pow-num" data-bind="text:txt_pow1"></div>
                   </div>
                 </div>
               </div>
-              <div class="player-turn-mid">
+              <div className="player-turn-mid">
                 vs.
               </div>
-              <div class="player-turn min" data-bind="css:{selected:selectedPlayer()==='p2'}">
-                <div class="player-icon-unit" data-bind="attr:{class:icon_2}">
-                  <svg class="inverted" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              <div className="player-turn min" data-bind="css:{selected:selectedPlayer()==='p2'}">
+                <div className="player-icon-unit" data-bind="attr:{class:icon_2}">
+                  <svg className="inverted" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                     <path data-bind="attr:{d:mechPoints}" />
                   </svg>
                 </div>
-                <div class="player-title" data-bind="text:title_2"></div>
-                <div class="player-sub">
+                <div className="player-title" data-bind="text:title_2"></div>
+                <div className="player-sub">
                   (
-                  <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
-                  <span class="type" data-bind="text:playerName_2"></span>)
+                  <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
+                  <span className="type" data-bind="text:playerName_2"></span>)
                 </div>
-                <div class="pl-select-ic" data-bind="visible:step()!==1">
-                  <i class="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
-                  <i class="fa fa-square-o ic-check-no" aria-hidden="true"></i>
+                <div className="pl-select-ic" data-bind="visible:step()!==1">
+                  <i className="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
+                  <i className="fa fa-square-o ic-check-no" aria-hidden="true"></i>
                 </div>
-                <div class="pl-pow" data-bind="visible:step()===1">
-                  <div class="pl-pow-lab" data-bind="text:txt_attackWith"></div>
-                  <div class="pl-pow-img">
+                <div className="pl-pow" data-bind="visible:step()===1">
+                  <div className="pl-pow-lab" data-bind="text:txt_attackWith"></div>
+                  <div className="pl-pow-img">
                     <img src="images/power.svg" />
-                    <div class="pl-pow-num" data-bind="text:txt_pow2"></div>
+                    <div className="pl-pow-num" data-bind="text:txt_pow2"></div>
                   </div>
                 </div>
               </div>
             </div>
-            <p class="italic" data-bind="text:txt_help,visible:step()!==1"></p>
+            <p className="italic" data-bind="text:txt_help,visible:step()!==1"></p>
           </div>
-          <div class="button btn-continue button_combat" data-bind="text:txt_continue,click:continueAction"></div>
+          <div className="button btn-continue button_combat" data-bind="text:txt_continue,click:continueAction"></div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_war_results" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="tit_combat">
-            <i class="fa fa-star"></i>
+    <div className="scythe-view" id="view_war_results" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="tit_combat">
+            <i className="fa fa-star"></i>
             <span data-bind="text:txt_tit"></span>
-            <i class="fa fa-star"></i>
+            <i className="fa fa-star"></i>
           </div>
-          <div class="win-selector">
-            <p class="lead" data-bind="text:txt_cop"></p>
-            <div class="attack-row">
-              <div class="player-turn min no-click" data-bind="css:{selected:selectedPlayer()==='p1'}">
-                <div class="player-icon-unit" data-bind="attr:{class:icon_1}">
+          <div className="win-selector">
+            <p className="lead" data-bind="text:txt_cop"></p>
+            <div className="attack-row">
+              <div className="player-turn min no-click" data-bind="css:{selected:selectedPlayer()==='p1'}">
+                <div className="player-icon-unit" data-bind="attr:{class:icon_1}">
                   <svg width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                     <path data-bind="attr:{d:mechPoints}" />
                   </svg>
                 </div>
-                <div class="player-title" data-bind="text:title_1"></div>
-                <div class="player-sub">
+                <div className="player-title" data-bind="text:title_1"></div>
+                <div className="player-sub">
                   (
-                  <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
-                  <span class="type" data-bind="text:playerName_1"></span>)
+                  <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_1}"></i>
+                  <span className="type" data-bind="text:playerName_1"></span>)
                 </div>
-                <div class="pl-select-ic">
-                  <i class="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
-                  <i class="fa fa-square-o ic-check-no" aria-hidden="true"></i>
+                <div className="pl-select-ic">
+                  <i className="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
+                  <i className="fa fa-square-o ic-check-no" aria-hidden="true"></i>
                 </div>
               </div>
-              <div class="player-turn-mid">
+              <div className="player-turn-mid">
                 vs.
               </div>
-              <div class="player-turn min no-click" data-bind="css:{selected:selectedPlayer()==='p2'}">
-                <div class="player-icon-unit" data-bind="attr:{class:icon_2}">
-                  <svg class="inverted" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              <div className="player-turn min no-click" data-bind="css:{selected:selectedPlayer()==='p2'}">
+                <div className="player-icon-unit" data-bind="attr:{class:icon_2}">
+                  <svg className="inverted" width="100%" height="100%" viewBox="0 0 45 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                     xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
                     <path data-bind="attr:{d:mechPoints}" />
                   </svg>
                 </div>
-                <div class="player-title" data-bind="text:title_2"></div>
-                <div class="player-sub">
+                <div className="player-title" data-bind="text:title_2"></div>
+                <div className="player-sub">
                   (
-                  <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
-                  <span class="type" data-bind="text:playerName_2"></span>)
+                  <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon_2}"></i>
+                  <span className="type" data-bind="text:playerName_2"></span>)
                 </div>
-                <div class="pl-select-ic">
-                  <i class="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
-                  <i class="fa fa-square-o ic-check-no" aria-hidden="true"></i>
+                <div className="pl-select-ic">
+                  <i className="fa fa-check-square-o ic-check-yes" aria-hidden="true"></i>
+                  <i className="fa fa-square-o ic-check-no" aria-hidden="true"></i>
                 </div>
               </div>
             </div>
-            <p class="italic" data-bind="text:txt_help1"></p>
-            <p class="italic" data-bind="text:txt_help2"></p>
+            <p className="italic" data-bind="text:txt_help1"></p>
+            <p className="italic" data-bind="text:txt_help2"></p>
           </div>
-          <div class="button btn-continue button_combat" data-bind="text:txt_continue,click:continueAction"></div>
+          <div className="button btn-continue button_combat" data-bind="text:txt_continue,click:continueAction"></div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_ai_resources" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">
-          <div class="t1 center" data-bind="text:txt_title"></div>
-          <div class="player-turn min">
-            <div class="player-img">
+    <div className="scythe-view" id="view_ai_resources" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">
+          <div className="t1 center" data-bind="text:txt_title"></div>
+          <div className="player-turn min">
+            <div className="player-img">
               <img src="" data-bind="attr:{src:icon}" />
             </div>
-            <div class="player-title" data-bind="text:title"></div>
-            <div class="player-sub">
+            <div className="player-title" data-bind="text:title"></div>
+            <div className="player-sub">
               (
-              <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
-              <span class="type" data-bind="text:playerName"></span>)
+              <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
+              <span className="type" data-bind="text:playerName"></span>)
             </div>
           </div>
-          <div class="ai_resources_box">
-              <p class="lead" data-bind="text:txt_gain"></p>
-              <div class="ai_resources_row">
-                <div class="item for-money" data-bind="visible:money">
-                  <div class="item-content">
+          <div className="ai_resources_box">
+              <p className="lead" data-bind="text:txt_gain"></p>
+              <div className="ai_resources_row">
+                <div className="item for-money" data-bind="visible:money">
+                  <div className="item-content">
                     <img src="images/money.svg"/>
-                    <div class="num" data-bind="text:money"></div>
+                    <div className="num" data-bind="text:money"></div>
                   </div>                  
                 </div>
-                <div class="item for-power" data-bind="visible:power">
-                  <div class="item-content">
+                <div className="item for-power" data-bind="visible:power">
+                  <div className="item-content">
                     <img src="images/power.svg"/>
-                    <div class="num" data-bind="text:power"></div>
+                    <div className="num" data-bind="text:power"></div>
                   </div>                  
                 </div>
-                <div class="item for-card" data-bind="visible:card">
-                  <div class="item-content">
+                <div className="item for-card" data-bind="visible:card">
+                  <div className="item-content">
                     <img src="images/card-power.svg"/>
-                    <div class="num" data-bind="text:card"></div>
+                    <div className="num" data-bind="text:card"></div>
                   </div>                  
                 </div>
-                <div class="item for-worker" data-bind="visible:worker">
-                  <div class="item-content">
+                <div className="item for-worker" data-bind="visible:worker">
+                  <div className="item-content">
                     <img src="images/worker-icon.svg"/>
-                    <div class="num" data-bind="text:worker"></div>
+                    <div className="num" data-bind="text:worker"></div>
                   </div>                  
                 </div>
-                <div class="item for-mech" data-bind="visible:mech">
-                    <div class="item-content">
+                <div className="item for-mech" data-bind="visible:mech">
+                    <div className="item-content">
                       <img src="images/mech-icon.svg"/>
-                      <div class="num" data-bind="text:mech"></div>
+                      <div className="num" data-bind="text:mech"></div>
                     </div>                  
                   </div>
               </div>
@@ -929,65 +962,65 @@
               <p data-bind="text:txt_3"></p>
           </div>
           
-          <div class="footer">
+          <div className="footer">
             <button data-bind="text:txt_continue,click:continueAction"></button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_ai_recruit" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">          
-          <div class="player-turn min">
-            <div class="player-img">
+    <div className="scythe-view" id="view_ai_recruit" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">          
+          <div className="player-turn min">
+            <div className="player-img">
               <img src="" data-bind="attr:{src:icon}" />
             </div>
-            <div class="player-title" data-bind="text:title"></div>
-            <div class="player-sub">
+            <div className="player-title" data-bind="text:title"></div>
+            <div className="player-sub">
               (
-              <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
-              <span class="type" data-bind="text:playerName"></span>)
+              <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
+              <span className="type" data-bind="text:playerName"></span>)
             </div>
           </div>
-          <div class="t1 center" data-bind="text:txt_title"></div>
-          <div class="recruit-box">
-            <div class="item for-recruit">
+          <div className="t1 center" data-bind="text:txt_title"></div>
+          <div className="recruit-box">
+            <div className="item for-recruit">
               <img src="images/recruit.svg"/>
             </div>
-            <div class="item" data-bind="attr:{class:iconClass}">
+            <div className="item" data-bind="attr:{class:iconClass}">
               <img src="" data-bind="attr:{src:iconSrc}"/>
             </div>
           </div>
-          <p class="mb20" data-bind="text:txt_1"></p>
-          <div class="footer">
+          <p className="mb20" data-bind="text:txt_1"></p>
+          <div className="footer">
             <button data-bind="text:txt_continue,click:continueAction"></button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="scythe-view" id="view_ai_star" data-bind="css: {current:current}">
-      <div class="container">
-        <div class="centered">          
-          <div class="player-turn min">
-            <div class="player-img">
+    <div className="scythe-view" id="view_ai_star" data-bind="css: {current:current}">
+      <div className="container">
+        <div className="centered">          
+          <div className="player-turn min">
+            <div className="player-img">
               <img src="" data-bind="attr:{src:icon}" />
             </div>
-            <div class="player-title" data-bind="text:title"></div>
-            <div class="player-sub">
+            <div className="player-title" data-bind="text:title"></div>
+            <div className="player-sub">
               (
-              <i class="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
-              <span class="type" data-bind="text:playerName"></span>)
+              <i className="" aria-hidden="true" data-bind="attr:{class:playerIcon}"></i>
+              <span className="type" data-bind="text:playerName"></span>)
             </div>
           </div>
-          <div class="t1 center" data-bind="text:txt_title"></div>
-          <div class="star-img">
+          <div className="t1 center" data-bind="text:txt_title"></div>
+          <div className="star-img">
             <img src="images/star.svg" />
           </div>
-          <p class="lead mb10" data-bind="text:txt_1"></p>
-          <p class="mb20" data-bind="text:txt_2"></p>
-          <div class="footer">
+          <p className="lead mb10" data-bind="text:txt_1"></p>
+          <p className="mb20" data-bind="text:txt_2"></p>
+          <div className="footer">
             <button data-bind="text:txt_continue,click:continueAction"></button>
           </div>
         </div>

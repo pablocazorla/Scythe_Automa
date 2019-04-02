@@ -1,0 +1,112 @@
+.player-turn{
+  padding: 5px 0 15px;
+  .player-icon-unit{
+    width: 60px;
+    margin: 0 auto 4px;
+    svg{
+      display: block;
+      width: 100%;
+      height: auto;
+      &.inverted{
+        .transform(scale(-1,1));
+      }
+    }
+    &.rusviet {
+      path {
+        fill: @color-icon-rusviet;
+      }
+    }
+    &.togawa {
+      path {
+        fill: @color-icon-togawa;
+      }
+    }
+    &.crimean {
+      path {
+        fill: @color-icon-crimean;
+      }
+    }
+    &.saxony {
+      path {
+        fill: @color-icon-saxony;
+      }
+    }
+    &.polania {
+      path {
+        fill: @color-icon-polania;
+        stroke: #777;
+        stroke-width:1px;
+      }
+    }
+    &.albion {
+      path {
+        fill: @color-icon-albion;
+      }
+    }
+    &.nordic {
+      path {
+        fill: @color-icon-nordic;
+      }
+    }
+    &.big{
+      width: 120px;
+    }
+  }
+  .player-img{
+    max-width: 200px;
+    margin: 0 auto 6px;
+    img{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  .player-title{
+    text-align: center;
+    .font-alt;
+    .uppercase;
+    font-size: 54px;
+    line-height: 1;
+  }
+  .player-sub{
+    text-align: center;
+    .font-alt;
+    .uppercase;
+    font-size: 18px;
+    line-height: 1;
+    opacity: .7;
+    .type{
+      margin-left: 5px;
+    }
+  }
+  &.min{
+    .player-img{
+      max-width: 56px;
+    }
+    .player-title{
+      font-size: 28px;
+      line-height: 1;
+    }
+    .player-sub{
+      font-size: 16px;
+      line-height: 1;
+    }
+  }
+  &.mid{
+    .player-icon-unit{
+      width: 130px;
+    }
+    .player-img{
+      max-width: 130px;
+    }
+    // .player-title{
+    //   font-size: 28px;
+    //   line-height: 1;
+    // }
+    // .player-sub{
+    //   font-size: 16px;
+    //   line-height: 1;
+    // }
+  }
+  
+}

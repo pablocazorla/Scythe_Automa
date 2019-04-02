@@ -1,0 +1,169 @@
+.faction-list {
+  padding: 10px 0 0;
+}
+.faction-item {
+  @t: 0.4s;
+  display: flex;
+  align-items: center;
+  margin-bottom: 9px;
+  cursor: pointer;
+  .transition(opacity @t);
+  .faction-type {
+    text-align: center;
+    width: 54px;
+    color: #000;
+    .icon {
+      font-size: 20px;
+      line-height: 1; //
+    }
+    .type {
+      .uppercase;
+      font-size: 11px;
+      line-height: 1;
+      margin-bottom: 3px;
+      .font-alt;
+    }
+  }
+  .faction-to {
+    width: 22px;
+    font-size: 20px;
+    line-height: 1;
+    text-align: center;
+    opacity: .2;
+  }
+  .faction-flag {
+    flex-grow: 1;
+    background: #CCC;
+    color: #FFF;
+    height: 46px; //border: 2px solid #AAA;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    .transition(all @t);
+    img {
+      .transition(all @t);
+    }
+    .faction {
+      width: 38px;
+      img{
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
+    .faction-title {
+      flex-grow: 1;
+      line-height: 1;
+      .font-alt;
+      font-size: 30px;
+      padding: 0 6px 0 15px;
+      .uppercase;
+    }
+    .faction-power {
+      .font-alt;
+      display: flex;
+      align-items: center;
+      padding-right: 5px;
+      .faction-icon-power,
+      .faction-icon-card {
+        position: relative;
+        width: 40px;
+        font-size: 25px;
+        line-height: 1;
+        text-shadow: 0 0 6px #000;
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+        span {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          .transform(translateX(-50%) translateY(-50%));
+        }
+      }
+      .faction-icon-card {
+        width: 36px;
+      }
+    }
+  }
+  &.rusviet {
+    .faction-flag {
+      background: @color-rusviet; //border-color: 
+      box-shadow: inset 0 0 12px darken(@color-rusviet, 20%);
+      .faction-title {
+        color: #611516;
+      }
+    }
+  }
+  &.togawa {
+    .faction-flag {
+      background: @color-togawa; //border-color: 
+      box-shadow: inset 0 0 12px darken(@color-togawa, 20%);
+    }
+  }
+  &.crimean {
+    .faction-flag {
+      background: @color-crimean; //border-color: 
+      box-shadow: inset 0 0 12px darken(@color-crimean, 20%);
+      .faction-title {
+        color: #5f5d21;
+      }
+    }
+  }
+  &.saxony {
+    .faction-flag {
+      background: @color-saxony; //border-color: 
+      box-shadow: inset 0 0 12px darken(@color-saxony, 20%);
+      .faction-title {
+        color: #f7d95f;
+      }
+    }
+  }
+  &.polania {
+    .faction-flag {
+      background: @color-polania; //border-color: 
+      box-shadow: inset 0 0 12px darken(@color-polania, 20%);
+      .faction-title {
+        color: #b3252c;
+      }
+    }
+  }
+  &.albion {
+    .faction-flag {
+      background: @color-albion; //border-color: 
+      box-shadow: inset 0 0 12px darken(@color-albion, 20%);
+      .faction-title {
+        color: #ffb463;
+      }
+    }
+  }
+  &.nordic {
+    .faction-flag {
+      background: @color-nordic; //border-color: 
+      box-shadow: inset 0 0 12px darken(@color-nordic, 20%);
+      .faction-title {
+        color: #365c9c;
+      }
+    }
+  }
+  &.disabled {
+    opacity: .4;
+    .faction-type {
+      opacity: .5;
+    }
+    .faction-flag {
+      background: #CCC;
+      color: #999;
+      img {
+        -webkit-filter: grayscale(1);
+        filter: grayscale(1);
+        opacity: .4;
+      }
+    }
+  }  
+}

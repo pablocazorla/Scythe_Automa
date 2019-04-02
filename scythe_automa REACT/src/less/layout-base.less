@@ -1,0 +1,102 @@
+html{
+	height: 100%;
+}
+body{
+	overflow: hidden;
+
+	font-size: 16px;
+	letter-spacing: .02em;
+	line-height: 1.4;
+	.noselect;
+	.font;
+	color:#666;
+	background: #fbf6ed url('../images/bg.jpg') top center;
+	background-size: cover;
+}
+#bg{
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	background: #fbf6ed url('../images/bg.jpg') top center;
+	background-size: cover;
+	.g{
+		@background-size: 830px;
+		position: absolute;
+		width: 50%;
+		height: 50%;
+		&.g1{
+			top: 0;
+			left: 0;
+			background: url('../images/g1.svg') top left no-repeat;
+			background-size: @background-size;
+		}
+		&.g2{
+			top: 0;
+			right: 0;
+			background: url('../images/g2.svg') top right no-repeat;
+			background-size: @background-size;
+		}
+		&.g3{
+			bottom: 0;
+			left: 0;
+			background: url('../images/g4.svg') bottom left no-repeat;
+			background-size: @background-size;
+		}
+		&.g4{
+			bottom: 0;
+			right: 0;
+			background: url('../images/g3.svg') bottom right no-repeat;
+			background-size: @background-size;
+		}
+	}
+}
+#scythe-container{
+	position: relative;
+	overflow: hidden;
+	width: 420px;
+	height: 560px;
+	margin:0 auto;	
+}
+
+.scythe-view{
+	position: absolute;
+	z-index: 10;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+}
+.container{
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	.transform(translateY(-50%));
+	padding: 0 20px;
+	max-height: 520px;
+	opacity:1;
+	text-align: center;
+	.transition(all .3s ease-out);
+	&.fade-enter,
+	&.fade-leave{
+		opacity:0;		
+	}
+	&.fade-leave{
+		.transform(translateY(-50%) translateX(-10%));
+	}
+	&.fade-enter{
+		.transform(translateY(-50%) translateX(3%));
+		.transition(all .1s ease-in);
+	}
+}
+.mb20{
+	margin-bottom: 20px;
+}
+.mb10{
+	margin-bottom: 10px;
+}
